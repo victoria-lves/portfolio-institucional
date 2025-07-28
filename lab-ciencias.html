@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratório de Ciencias da Natureza</title>
+
+    <link rel="stylesheet" href="style-lab.css" />
+
+    <!--FONTES UTILIZADAS-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--ICONES UTILIZADOS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+    />
+
+    <!--API PARA FOTO PANORAMICA-->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#" id="logo-link">
+          <img src="img/img/logo-b.png" alt="" id="logo" />
+        </a>
+        <nav class="nav-items">
+          <a href="#">CURSOS</a>
+          <a href="#">INFRAESTRUTURA</a>
+          <a href="#">NOSSA EQUIPE</a>
+          <a href="#">PROJETOS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="theme">
+        <div class="theme-content">
+          <h1 id="theme-title">Laboratório de Ciencias da Natureza</h1>
+          <p id="theme-desc">
+            Conheça nosso laboratório de ciencias do Campus.
+          </p>
+        </div>
+      </section>
+
+      <section class="laboratorio">
+        <div class="container">
+          <div class="laboratorio-text">
+            <h2 class="section-title">Sobre o Laboratório</h2>
+            <p class="section-desc">
+              O Laboratório de Pesquisa é um espaço destinado ao desenvolvimento
+              de projetos científicos e de extensão. Nele, docentes de diversas
+              áreas do conhecimento realizam suas atividades de forma
+              colaborativa, utilizando o ambiente de maneira compartilhada e
+              interdisciplinar. O espaço foi disponibilizado para atender às
+              demandas específicas da pesquisa acadêmica, promovendo a
+              integração entre ensino, ciência.
+            </p>
+          </div>
+          <div id="foto-panorama"></div>
+        </div>
+      </section>
+
+      <section class="equipamentos">
+        <div class="container">
+          <h2 class="section-title">Nossos Equipamentos</h2>
+          <div class="equipamentos-grid">
+            <!-- modelo de card -->
+            <div class="equipamentos-card">
+              <div class="equipamentos-icon">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <h4 class="equipamentos-nome">Estufa para Germinação</h4>
+              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
+            </div>
+            <div class="equipamentos-card">
+              <div class="equipamentos-icon">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+              <h4 class="equipamentos-nome">Microscópio Biológico</h4>
+              <p class="equipamentos-categoria">Análise e Observação</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div id="footer-address">
+            <h4>Endereço</h4>
+            <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+          </div>
+          <div id="footer-schedule">
+            <h4>Funcionamento</h4>
+            <p>Segunda a Sexta: 08h - 22h</p>
+            <p>Sabado: 12h - 20h</p>
+          </div>
+          <div id="footer-contact">
+            <h4>Contato</h4>
+            <p>E-mail: contato.ob@ifmg.edu.br</p>
+            <p>Telefone: (31) 3938-1200</p>
+          </div>
+          <div id="footer-social">
+            <h4>Redes Sociais</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="copyright">
+        <p>
+          &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      pannellum.viewer("foto-panorama", {
+        type: "equirectangular",
+        panorama: "https://pannellum.org/images/alma.jpg",
+        autoLoad: true,
+        showControls: true,
+        compass: true,
+        hotSpots: [
+          {
+            pitch: -10,
+            yaw: 150,
+            type: "info",
+            text: "Mesa de trabalho principal",
+          },
+          {
+            pitch: 0,
+            yaw: 40,
+            type: "info",
+            text: "Capela de exaustão de gases",
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
