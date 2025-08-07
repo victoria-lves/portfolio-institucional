@@ -3,46 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar perfil</title>
 </head>
 <body>
     <header></header>
     <main>
         <form action="">
             <div class="container">
+                <h1>Editar Perfil</h1>
                 <div class="input-box">
                     <label for="">Nome:
-                        <input type="text">
+                        <input type="text" placeholder="Seu nome">
                     </label>
                 </div>
                 <div class="input-box">
                     <label for="">Sobrenome:
-                        <input type="text">
+                        <input type="text" placeholder="Seu sobrenome">
                     </label>
                 </div>
                 <div class="input-box">
                     <label for="">Descrição:
-                        <input type="text">
+                        <input type="text" placeholder="Insira uma descrição breve">
                     </label>
                 </div>
                 <div class="input-box">
                     <label for="">Formação:
-                        <input type="text">
+                        <input type="text" placeholder="">
                     </label>
                 </div>
                 <div class="input-box">
                     <label for="">Disciplinas:
-                        <input type="text">
+                        <input type="text" placeholder="Ex.: Cálculo I, Biologia II">
                     </label>
                 </div>
-                <div class="input-box">
-                    <label for="">Produções:
-                        <input type="text">
-                    </label>
                 </div>
                 <div class="input-box">
                     <label for="">Foto de perfil:
-                        <input type="image">
+                        <input type="file">
                     </label>
                 </div>
                 
@@ -50,47 +47,70 @@
                 <!--criar producao-->
                 <div class="input-box">
                     <h2>Producao</h2>
-                    <label for="">titulo:
+                    <label for="">Título:
                         <input type="text" id="titulo">
                     </label>
-                    <label for="">data:
-                        <input type="text" id="data">
+                    <label for="">Data:
+                        <input type="text" id="data" placeholder="Ex.: dd/mm/yyyy ou yyyy">
                     </label>
-                    <label for="">autor:
+                    <label for="">Autor(es):
                         <input type="text" id="autor">
                     </label>
-                    <label for="">link:
-                        <input type="text" id="link">
+                    <label for="">Link:
+                        <input type="url" id="link">
                     </label>
-                    <label for="">tipo:
-                        <input type="text" id="tipo">
+                    <label for="">Tipo:
+                        <select name="" id="">
+                            <option value="">Livro</option>
+                            <option value="">Artigo</option>
+                            <option value="">Tese</option>
+                            <option value="">Outro</option>
+                        </select>
                     </label>
-                    <label for="">idioma:
-                        <input type="text" id="idioma">
+                    <label for="">Idioma:
+                        <select name="" id="">
+                            <option value="">Português (pt-br)</option>
+                            <option value="">Inglês</option>
+                            <option value="">Espanhol</option>
+                            <option value="">Francês</option>
+                            <option value="">Italiano</option>
+                            <option value="">Outro</option>
+                        </select>
                     </label>
                 </div>
 
                 <div class="input-box">
                     <h2>Contato</h2>
-                    <label for="">email:
-                        <input type="text" id="email">
+                    <label for="">E-mail:
+                        <input type="email" id="email" placeholder="Seu E-mail">
                     </label>
-                    <label for="">lattes:
-                        <input type="text" id="lattes">
+                    <label for="">Lattes:
+                        <input type="text" id="lattes" placeholder="Ex.: 0080884938948">
                     </label>
-                    <label for="">linkedin:
-                        <input type="text" id="linkedin">
+                    <label for="">LinkedIn:
+                        <input type="text" id="linkedin" placeholder="Ex.: @joaogomes">
                     </label>
-                    <label for="">sala:
-                        <input type="text" id="sala">
+                    <label for="">Gabinete:
+                        <select name="gabinete" id="select-gabinete">
+                            <option value="humanas">Humanas</option>
+                            <option value="naturezas">Naturezas</option>
+                            <option value="exatas">Matemática</option>
+                            <option value="linguagens">Linguagens</option>
+                            <option value="informatica">Informática</option>
+                            <option value="metalurgia">Metalurgia</option>
+                            <option value="administracao">Administração</option>
+                        </select>
                     </label>
-                    <label for="">horarios:
-                        <input type="text" id="horarios">
+                    <label for="">Horários:
+                        <input type="time" id="horarios">
+                        <label for="">até
+                            <input type="time" id="horarios">
+                        </label>
                     </label>
                 </div>
             </div>
             <button>Salvar informações</button>
-            <button>Voltar a pagina inicial</button>
+            <button>Voltar à página inicial</button>
         </form>
     </main>
     <footer></footer>
