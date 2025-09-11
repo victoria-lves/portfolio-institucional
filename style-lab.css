@@ -179,8 +179,10 @@ header .container {
 
 .equipamentos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr); /* Dois cards por linha */
+  column-gap: 30px; /* Espaço horizontal entre os cards */
+  row-gap: 60px;    /* Espaço vertical entre as linhas (grupos) */
+  justify-content: center;
 }
 
 .equipamentos-card {
@@ -213,6 +215,7 @@ header .container {
 .equipamentos-card .equipamentos-categoria {
   color: #777;
 }
+
 
 /* --- FOOTER --- */
 footer {
