@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossos Docentes</title>
     <link rel="stylesheet" href="css/style-menu-prof.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-          <a href="menu.html" id="logo-link">
+          <div class="institucional">
             <img src="img/logo-b.png" alt="" id="logo" />
-          </a>
+          </div>
           <nav class="nav-items">
             <a href="#">CURSOS</a>
             <a href="menu-lab.html">INFRAESTRUTURA</a>
-            <a href="#">NOSSA EQUIPE</a>
+            <a href="menu-prof.html">DOCENTES</a>
             <a href="#">PROJETOS</a>
           </nav>
         </div>
@@ -23,87 +24,147 @@
 
     <main>
       <section class="theme">
-        <div class="content">
-          <h1>Nossos Docentes</h1>
-          <p>Conheca os professores da nossa instituicao.</p>
+        <div class="theme-content">
+          <h1 class="theme-title">Nossos Docentes</h1>
+          <p class="theme-desc">Conheça os professores da nossa instituição.</p>
         </div>
       </section>
 
-      <section class="filtro">
-        <div class="filtro">
-            <h2>Filtrar por</h2>
-                <h4>Nome:</h4>
-                    <label for="">
-                      <input type="search">
-                    </label>
-                    <br>
-                    <h4>Gabinete: </h4>
-                    <label for="">
-                      <input type="checkbox"> Administração
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Humanas
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Informática
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Linguagens
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Matemática
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Metalurgia
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Administração
-                    </label>
-                    <label for="">
-                      <input type="checkbox"> Naturezas
-                    </label>
-        </div>
-      </section>
-
-      <section class="grid-cards">
-            <div class="content">
-                <div class="card-professor">
-                  <img src="" alt="">
-                  <h3>Nome do professor</h3>
-                  <p>Alguma informacao</p>
-                </div>
+      <section class="filtro-docentes">
+        <div class="container">
+          <div class="filtro-content">
+            <div class="filtro-header">
+              <h2>Filtrar por</h2>
+              <div class="search-box">
+                <input type="search" placeholder="Nome do docente...">
+              </div>
             </div>
+            <form class="filtro-form">
+              <h3>Gabinete</h3>
+              <div class="filtro-labels">
+                <label for="adm">
+                  <input type="checkbox" id="adm"> Administração
+                </label>
+                <label for="humanas">
+                  <input type="checkbox" id="humanas"> Humanas
+                </label>
+                <label for="informatica">
+                  <input type="checkbox" id="informatica"> Informática
+                </label>
+                <label for="linguagens">
+                  <input type="checkbox" id="linguagens"> Linguagens
+                </label>
+                <label for="matematica">
+                  <input type="checkbox" id="matematica"> Matemática
+                </label>
+                <label for="metalurgia">
+                  <input type="checkbox" id="metalurgia"> Metalurgia
+                </label>
+                <label for="naturezas">
+                  <input type="checkbox" id="naturezas"> Naturezas
+                </label>
+              </div>
+              <button type="button" class="filtro-button">Procurar</button>
+            </form>
+          </div>
+        </div>
       </section>
 
+      <section class="grid-docentes">
+        <div class="container">
+          <div class="grid-cards">
+            <div class="card-docente">
+              
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Ana Paula Mendes Alves de Carvalho</h3>
+                <p>Doutora em Estudos Linguísticos</p>
+              </div>
+            </div>
+            <div class="card-docente">
+              
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Nome do Professor (a)</h3>
+                <p>Doutor (a) em Ciências Humanas</p>
+              </div>
+            </div>
+            <div class="card-docente">
+             
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Nome do Professor (a)</h3>
+                <p>Doutor (a) em Matemática Aplicada</p>
+              </div>
+            </div>
+            <div class="card-docente">
+              
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Nome do Professor (a)</h3>
+                <p>Doutor (a) em Metalurgia</p>
+              </div>
+            </div>
+            <div class="card-docente">
+             
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Nome do Professor (a)</h3>
+                <p>Doutor (a) em Ciências da Natureza</p>
+              </div>
+            </div>
+            <div class="card-docente">
+              
+              <div class="docente-imagem">
+                Foto do Professor
+              </div>
+              <div class="docente-info">
+                <h3>Nome do Professor (a)</h3>
+                <p>Doutor (a) em Linguística</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
         <div class="container">
           <div class="footer-content">
-            <div id="footer-address">
+            <div class="footer-address">
               <h4>Endereço</h4>
               <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
             </div>
-            <div id="footer-schedule">
+            <div class="footer-schedule">
               <h4>Funcionamento</h4>
               <p>Segunda a Sexta: 08h - 22h</p>
-              <p>Sabado: 12h - 20h</p>
+              <p>Sábado: 12h - 20h</p>
             </div>
-            <div id="footer-contact">
+            <div class="footer-contact">
               <h4>Contato</h4>
               <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
-            <p>Telefone: (31) 2137-5700</p>
+              <p>Telefone: (31) 2137-5700</p>
             </div>
-            <div id="footer-social">
+            <div class="footer-social">
               <h4>Redes Sociais</h4>
               <div class="social-icons">
                 <a href="https://www.youtube.com/@IFMGCampusOuroBranco" target="_blank" aria-label="Youtube">
                   <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Youtube">
+                <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Instagram">
                   <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Youtube">
+                <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Facebook">
                   <i class="fa-brands fa-facebook"></i>
                 </a>
               </div>

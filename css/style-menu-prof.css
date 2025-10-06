@@ -1,3 +1,468 @@
-.card-professor{
-    border: 2px solid green;
-}
+:root {
+    --primary-color: #006400;
+    --secondary-color: #f4f4f9;
+    --accent-color: #ffd700;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-dark);
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex-grow: 1;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+  
+  /* --- HEADER --- */
+  header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .institucional {
+    font-family: "League Spartan", sans-serif;
+    text-align: left;
+  }
+  
+  .institucional h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  
+  .institucional h2 {
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+  
+  #logo {
+    height: 50px;
+    width: auto;
+  }
+  
+  #logo-link:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  
+  .nav-items {
+    display: flex;
+    gap: 30px;
+    font-family: "Poppins";
+    font-weight: 400;
+  }
+  
+  .nav-items a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+  
+  /* --- SEÇÃO THEME (BANNER PRINCIPAL) --- */
+  .theme {
+    position: relative;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    background-image: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), url('img/docentes-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .theme-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .theme-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  
+  .theme-desc {
+    font-size: 1.2rem;
+    max-width: 600px;
+    font-weight: 300;
+  }
+  
+  /* --- SEÇÃO FILTRO DOCENTES --- */
+  .filtro-docentes {
+    background-color: var(--card-bg);
+    padding: 60px 0;
+  }
+  
+  .filtro-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .filtro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .filtro-header h2 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: var(--secondary-color);
+    border-radius: 25px;
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    min-width: 300px;
+  }
+  
+  .search-box input {
+    border: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .search-box input::placeholder {
+    color: #777;
+  }
+  
+  .filtro-form {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+  }
+  
+  .filtro-form h3 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+  }
+  
+  .filtro-labels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .filtro label {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    font-weight: 400;
+  }
+  
+  .filtro label:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px var(--shadow-color);
+  }
+  
+  .filtro input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.2);
+    accent-color: var(--primary-color);
+  }
+  
+  .filtro-button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .filtro-button:hover {
+    background-color: #004d00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 100, 0, 0.3);
+  }
+  
+  /* --- SEÇÃO GRID DE DOCENTES --- */
+  .grid-docentes {
+    padding: 60px 0;
+    background-color: var(--secondary-color);
+  }
+  
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .card-docente {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+  }
+  
+  .card-docente:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .docente-imagem {
+    width: 100%;
+    height: 250px;
+    background-color: #bdc3c7;
+    background-image: linear-gradient(45deg, #ecf0f1 25%, transparent 25%), 
+                      linear-gradient(-45deg, #ecf0f1 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #ecf0f1 75%), 
+                      linear-gradient(-45deg, transparent 75%, #ecf0f1 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+    font-style: italic;
+  }
+  
+  .docente-info {
+    padding: 25px;
+  }
+  
+  .docente-info h3 {
+    color: var(--primary-color);
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .docente-info p {
+    color: #777;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* --- FOOTER --- */
+  footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding-top: 50px;
+    font-weight: 300;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+  }
+  
+  .footer-content h4 {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+  }
+  
+  .footer-content p {
+    line-height: 1.7;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icons a i {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+  }
+  
+  .social-icons a:hover i {
+    color: var(--accent-color);
+    transform: scale(1.2);
+  }
+  
+  #copyright {
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+  }
+  
+  /* --- RESPONSIVIDADE --- */
+  @media (max-width: 992px) {
+    .filtro-labels {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-cards {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .theme-title {
+      font-size: 2.5rem;
+    }
+    
+    header .container {
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .institucional {
+      text-align: center;
+      width: 100%;
+    }
+    
+    .nav-items {
+      width: 100%;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .filtro-header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .search-box {
+      min-width: auto;
+      width: 100%;
+    }
+    
+    .filtro-labels {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cards {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .theme-title {
+      font-size: 2rem;
+    }
+    
+    .theme-desc {
+      font-size: 1rem;
+    }
+    
+    .filtro-form {
+      padding: 20px;
+    }
+    
+    .filtro-labels {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+      text-align: center;
+    }
+    
+    .social-icons {
+      justify-content: center;
+    }
+    
+    .grid-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .docente-imagem {
+      height: 200px;
+    }
+  }
