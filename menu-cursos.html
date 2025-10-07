@@ -1,13 +1,544 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossos Laboratórios</title>
-    <link rel="stylesheet" href="css/style-menu-lab.css">
+    <title>IFMG - Campus Ouro Branco</title>
+    <style>
+        :root {
+            --primary-color: #006400;
+            --secondary-color: #f4f4f9;
+            --accent-color: #ffd700;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: "League Spartan", sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* ELEMENTOS HEADER */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #logo {
+            height: 50px;
+            width: auto;
+        }
+
+        #logo-link:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 30px;
+            font-family: "Poppins";
+            font-weight: 400;
+        }
+
+        .nav-items a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- SEÇÃO INSTITUCIONAL --- */
+        .institucional {
+            padding: 40px 0;
+            background-color: var(--card-bg);
+            text-align: center;
+        }
+
+        .institucional h1 {
+            font-family: "League Spartan", sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .institucional h2 {
+            font-family: "League Spartan", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* --- SEÇÃO MENU --- */
+        .menu {
+            padding: 30px 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .menu-items a {
+            font-family: "League Spartan", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-items a:hover {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        /* --- SEPARADOR --- */
+        .separator {
+            height: 2px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        /* --- SEÇÃO PROJETOS --- */
+        .projetos {
+            padding: 40px 0;
+            background-color: var(--card-bg);
+        }
+
+        .projetos-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .projeto-form {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .projeto-form h3 {
+            font-family: "League Spartan", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .gabinetes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .gabinete-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gabinete-item input {
+            width: auto;
+        }
+
+        .descricao {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .descricao h3 {
+            font-family: "League Spartan", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .descricao-list {
+            list-style-type: none;
+        }
+
+        .descricao-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .descricao-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- SEÇÃO DE IMAGENS --- */
+        .galeria {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .galeria-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galeria-caption {
+            padding: 15px;
+            background-color: var(--card-bg);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding-top: 50px;
+            font-weight: 300;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+
+        .footer-content h4 {
+            font-family: "League Spartan", sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .footer-content p {
+            line-height: 1.7;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a i {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover i {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        #copyright {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .projetos-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .institucional h1 {
+                font-size: 2rem;
+            }
+            .institucional h2 {
+                font-size: 1.5rem;
+            }
+            header .container {
+                justify-content: center;
+            }
+            .nav-items {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gabinetes {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+    <!-- FONTES UTILIZADAS -->
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ICONES UTILIZADOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-        
+    <header>
+        <div class="container">
+            <a href="#" id="logo-link">
+                <!-- Logo do IFMG -->
+                <svg id="logo" width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="50" fill="#006400" rx="5"/>
+                    <text x="100" y="30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">IFMG CAMPUS OURO BRANCO</text>
+                </svg>
+            </a>
+            <nav class="nav-items">
+                <a href="#">CURSOS</a>
+                <a href="#">INFRAESTRUTURA</a>
+                <a href="#">DOCENTES</a>
+                <a href="#">PROJETOS</a>
+            </nav>
+        </div>
+    </header>
 
+    <main>
+        <header>
+      <div class="container">
+        <a href="menu.html" id="logo-link">
+          <img src="img/logo-b.png" alt="" id="logo" />
+        </a>
+        <nav class="nav-items">
+          <a href="#">CURSOS</a>
+          <a href="menu-lab.html">INFRAESTRUTURA</a>
+          <a href="#">NOSSA EQUIPE</a>
+          <a href="#">PROJETOS</a>
+        </nav>
+      </div>
+    </header>
+    
+
+        <div class="separator"></div>
+
+        <section class="projetos">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <div class="projetos-container">
+                    <div class="projeto-form">
+                        <h3>Projetos</h3>
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" placeholder="Q ______ x">
+                        </div>
+                        <div class="form-group">
+                            <label>Gabinete</label>
+                            <div class="gabinetes">
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="informatica1">
+                                    <label for="informatica1">Informática</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="pedagogia">
+                                    <label for="pedagogia">Pedagogia</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="linguagens">
+                                    <label for="linguagens">Linguagens</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="administracao">
+                                    <label for="administracao">Administração</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="metalurgia">
+                                    <label for="metalurgia">Metalurgia</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="naturezas">
+                                    <label for="naturezas">Naturezas</label>
+                                </div>
+                                <div class="gabinete-item">
+                                    <input type="checkbox" id="informatica2">
+                                    <label for="informatica2">Informática</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descricao">
+                        <h3>Descrição</h3>
+                        <ul class="descricao-list">
+                            <li>Descrição</li>
+                            <li>Descrição</li>
+                            <li>Descrição</li>
+                            <li>Descrição</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="galeria">
+            <div class="container">
+                <h2 class="section-title">Nossa Infraestrutura</h2>
+                <div class="galeria-grid">
+                    <div class="galeria-item">
+                        <img src="https://images.unsplash.com/photo-1592421696276-4a4e4b21eea8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Laboratório de Informática">
+                        <div class="galeria-caption">Laboratório de Informática</div>
+                    </div>
+                    <div class="galeria-item">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Laboratório de Química">
+                        <div class="galeria-caption">Laboratório de Química</div>
+                    </div>
+                    <div class="galeria-item">
+                        <img src="https://images.unsplash.com/photo-1581094794323-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Biblioteca">
+                        <div class="galeria-caption">Biblioteca</div>
+                    </div>
+                    <div class="galeria-item">
+                        <img src="https://images.unsplash.com/photo-1581094794323-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Auditório">
+                        <div class="galeria-caption">Auditório</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div id="footer-address">
+                    <h4>Endereço</h4>
+                    <p>Rua Afonso Sardinha, 90<br>Ouro Branco, MG - 36420-000</p>
+                </div>
+                <div id="footer-schedule">
+                    <h4>Funcionamento</h4>
+                    <p>Segunda a Sexta: 08h - 22h</p>
+                    <p>Sábado: 12h - 20h</p>
+                </div>
+                <div id="footer-contact">
+                    <h4>Contato</h4>
+                    <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
+                    <p>Telefone: (31) 2137-5700</p>
+                </div>
+                <div id="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/@IFMGCampusOuroBranco" target="_blank" aria-label="Youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
+        </div>
+    </footer>
 </body>
 </html>
