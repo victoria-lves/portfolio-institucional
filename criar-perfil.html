@@ -31,7 +31,7 @@
                     </label>
                 </div>
                 <div class="input-box">
-                    <label for="">Descrição profissional (Breve):
+                    <label for="">Descrição profissional (breve):
                         <input type="text" placeholder="Insira uma descrição breve">
                     </label>
                 </div>
@@ -69,7 +69,7 @@
                     </label>
                     <label for="">Gabinete/Departamento:
                         <select name="gabinete" id="select-gabinete">
-                            <option value="">   </option>
+                            <option value="vazio">Selecione</option>
                             <option value="humanas">Humanas</option>
                             <option value="naturezas">Naturezas</option>
                             <option value="exatas">Matemática</option>
@@ -83,6 +83,45 @@
                         <input type="text" id="horarios" placeholder="Ex.: Seg: 12:00 até 13:30, Qua: 14:00 até 15:30">
                     </label>
                 </div>
+
+                <section>
+                <div>
+                    <h1>Cadastrar produção</h1>
+                    <div class="input-box">
+                        <label for="">Título:
+                            <input type="text" placeholder="Título da produção">
+                        </label>
+                        <label for="">Autores:
+                            <input type="text" placeholder="Autores separados por vírgula">
+                        </label>
+                        <label for="">Data de publicação:
+                            <input type="date" name="" id="">
+                        </label>
+                        <label for="">Tipo:
+                            <select name="" id="">
+                                <option value="">Selecione</option>
+                                <option value="">Livro</option>
+                                <option value="">Artigo</option>
+                                <option value="">Tese</option>
+                                <option value="">Outro</option>
+                            </select>
+                        </label>
+                        <label for="">Idioma:
+                            <select name="" id="">
+                                <option value="">Selecione</option>
+                                <option value="">Português (pt-br)</option>
+                                <option value="">Inglês</option>
+                                <option value="">Espanhol</option>
+                                <option value="">Outro</option>
+                            </select>
+                        </label>
+                        <label for="">Link:
+                            <input type="text" placeholder="Link para a produção">
+                        </label>
+                        <button> + produção </button>
+                </div>
+                </section>
+
                 <button>Salvar informações</button>
                 <button>Voltar à página inicial</button>
             </div>
