@@ -1,13 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Projeto</title>
+    <!-- Link para o CSS customizado -->
+    <link rel="stylesheet" href="css/style-criar-projeto.css">
+    <!-- Links de fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <main>
+        
+        <!-- Container Principal: Cadastro de Projeto -->
+        <div class="form-container" id="projeto-container">
+            
+            <h1>Cadastrar Novo Projeto</h1>
+            
+            <!-- Caixa de Mensagens (Feedback) -->
+            <div id="message-box" class="feedback-box hidden">
+                <!-- As mensagens de sucesso/erro aparecerão aqui -->
+            </div>
+
+            <form onsubmit="salvarProjeto(event)">
+                
+                <!-- Sessão 1: Informações Básicas e Descrição -->
+                <section class="form-section">
+                    <h2>Informações Essenciais</h2>
+                    
+                    <div class="input-group">
+                        <label for="titulo">Título do Projeto: <span style="color: red;">*</span></label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Ex.: Desenvolvimento de um Sistema de Previsão Climática" required>
+                    </div>
+
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="autor">Nome do Professor Responsável: <span style="color: red;">*</span></label>
+                            <input type="text" id="autor" name="autor" placeholder="Seu Nome Completo" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="area_conhecimento">Área de Conhecimento: <span style="color: red;">*</span></label>
+                            <input type="text" id="area_conhecimento" name="area_conhecimento" placeholder="Ex.: Ciência da Computação, Engenharia Civil" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="descricao">Descrição Detalhada do Projeto: <span style="color: red;">*</span></label>
+                        <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o problema a ser resolvido, a metodologia e o escopo do projeto." required></textarea>
+                    </div>
+                </section>
+
+                <!-- Sessão 2: Status e Datas -->
+                <section class="form-section">
+                    <h2>Status e Prazos</h2>
+                    
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="data_inicio">Data de Início: <span style="color: red;">*</span></label>
+                            <input type="date" id="data_inicio" name="data_inicio" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="status">Status do Projeto: <span style="color: red;">*</span></label>
+                            <select id="status" name="status" required onchange="toggleDataFim()">
+                                <option value="" disabled selected>Selecione o status atual</option>
+                                <option value="Em andamento">Em Andamento</option>
+                                <option value="Concluído">Concluído</option>
+                                <option value="Pausado">Pausado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campo Condicional: Data Fim (visível apenas se Status for 'Concluído') -->
+                    <div class="input-group hidden" id="data_fim_group">
+                        <label for="data_fim">Data de Conclusão: <span style="color: red;">*</span></label>
+                        <input type="date" id="data_fim" name="data_fim">
+                    </div>
+                </section>
+
+                <!-- Sessão 3: Financiamento e Parcerias -->
+                <section class="form-section">
+                    <h2>Financiamento e Colaboração</h2>
+
+                    <div class="input-group">
+                        <label for="agencia_financiadora">Agência Financiadora (Nome ou 'Recursos Próprios'): <span style="color: red;">*</span></label>
+                        <input type="text" id="agencia_financiadora" name="agencia_financiadora" placeholder="Ex.: CNPq, FAPESP, Recursos Próprios" required>
+                    </div>
+                    
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="financiamento">Valor do Financiamento (R$):</label>
+                            <!-- Usando type="number" para validação, e formatando a exibição no JS ou backend -->
+                            <input type="number" id="financiamento" name="financiamento" placeholder="Ex.: 15000.00" step="0.01" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="parceria">Parcerias/Instituições Envolvidas:</label>
+                            <input type="text" id="parceria" name="parceria" placeholder="Ex.: Empresa X, Universidade Y (separar por vírgula)">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="alunos_envolvidos">Alunos Envolvidos (Nomes ou Matrículas):</label>
+                        <textarea id="alunos_envolvidos" name="alunos_envolvidos" rows="2" placeholder="Listar alunos, separando por linha ou vírgula."></textarea>
+                    </div>
+                </section>
+
+                <!-- Sessão 4: Resultados e Recursos -->
+                <section class="form-section">
+                    <h2>Objetivos e Entregáveis</h2>
+
+                    <div class="input-group">
+                        <label for="objetivos">Objetivos e Metas do Projeto:</label>
+                        <textarea id="objetivos" name="objetivos" rows="3" placeholder="Quais são os principais objetivos a serem alcançados?"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="resultados">Resultados Esperados/Alcançados:</label>
+                        <textarea id="resultados" name="resultados" rows="3" placeholder="Quais resultados foram ou serão produzidos?"></textarea>
+                    </div>
+
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="links">Links e Repositórios (separar por linha):</label>
+                            <textarea id="links" name="links" rows="2" placeholder="Ex.: GitHub, site do projeto, etc."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="imagens">Imagens de Divulgação (Múltiplas Seleções):</label>
+                            <input type="file" id="imagens" name="imagens" accept="image/*" multiple>
+                        </div>
+                    </div>
+
+                </section>
+                
+                <!-- Botões de Ação do Projeto -->
+                <div class="button-group">
+                    <button type="button" onclick="voltarParaHome()" class="btn-secondary">
+                        Cancelar e Voltar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Cadastrar Projeto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer style="margin-top: 20px; color: rgba(255, 255, 255, 0.7);">
+        &copy; 2024 Meu Sistema.
+    </footer>
+
+    <!-- Link para o JavaScript -->
+    <script src="projeto_script.js"></script>
 </body>
 </html>

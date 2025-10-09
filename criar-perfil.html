@@ -1,133 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar perfil</title>
+    <title>Editar Perfil</title>
+    <!-- Link para o CSS customizado -->
     <link rel="stylesheet" href="css/style-editar-perfil.css">
-    <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet"
-  />
+    <!-- Links de fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <header></header>
     <main>
-        <form action="">
-            <div class="container">
-                <h1>Editar Perfil</h1>
-                <div class="input-box">
-                    <label for="">Nome:
-                        <input type="text" placeholder="Seu nome">
-                    </label>
-                </div>
-                <div class="input-box">
-                    <label for="">Sobrenome:
-                        <input type="text" placeholder="Seu sobrenome">
-                    </label>
-                </div>
-                <div class="input-box">
-                    <label for="">Descrição profissional (breve):
-                        <input type="text" placeholder="Insira uma descrição breve">
-                    </label>
-                </div>
-                <div class="input-box">
-                    <label for="">Formação:
-                        <input type="text" placeholder="Bacharel em Matemática, Doutor em Física">
-                    </label>
-                </div>
-                <div class="input-box">
-                    <label for="">Disciplinas:
-                        <input type="text" placeholder="Ex.: Cálculo I, Biologia II">
-                    </label>
-                </div>
-                <div class="input-box">
-                    <label for="">Foto de perfil:
-                        <input type="file">
-                    </label>
-                </div>
-
-                <div class="input-box">
-                    
-                </div>
-
+        
+        <!-- Container 1: Edição de Perfil Existente -->
+        <div class="form-container" id="perfil-container">
             
-                <div class="input-box">
-                    <h2>Contato e Disponibilidade</h2>
-                    <label for="">E-mail:
-                        <input type="email" id="email" placeholder="Seu E-mail">
-                    </label>
-                    <label for="">Currículo Lattes (URL):
-                        <input type="text" id="lattes" placeholder="Ex.: 0080884938948">
-                    </label>
-                    <label for="">LinkedIn (Username):
-                        <input type="text" id="linkedin" placeholder="Ex.: @joaogomes">
-                    </label>
-                    <label for="">Gabinete/Departamento:
-                        <select name="gabinete" id="select-gabinete">
-                            <option value="vazio">Selecione</option>
-                            <option value="humanas">Humanas</option>
-                            <option value="naturezas">Naturezas</option>
-                            <option value="exatas">Matemática</option>
-                            <option value="linguagens">Linguagens</option>
-                            <option value="informatica">Informática</option>
-                            <option value="metalurgia">Metalurgia</option>
-                            <option value="administracao">Administração</option>
-                        </select>
-                    </label>
-                    <label for="">Horários de atendimento:
-                        <input type="text" id="horarios" placeholder="Ex.: Seg: 12:00 até 13:30, Qua: 14:00 até 15:30">
-                    </label>
-                </div>
+            <h1>Editar Perfil</h1>
+            
+            <!-- Caixa de Mensagens (Feedback do Perfil) -->
+            <div id="message-box" class="feedback-box hidden">
+                <!-- As mensagens de sucesso/erro aparecerão aqui -->
+            </div>
 
-                <section>
-                <div>
-                    <h1>Cadastrar produção</h1>
-                    <div class="input-box">
-                        <label for="">Título:
-                            <input type="text" placeholder="Título da produção">
-                        </label>
-                        <label for="">Autores:
-                            <input type="text" placeholder="Autores separados por vírgula">
-                        </label>
-                        <label for="">Data de publicação:
-                            <input type="date" name="" id="">
-                        </label>
-                        <label for="">Tipo:
-                            <select name="" id="">
-                                <option value="">Selecione</option>
-                                <option value="">Livro</option>
-                                <option value="">Artigo</option>
-                                <option value="">Tese</option>
-                                <option value="">Outro</option>
-                            </select>
-                        </label>
-                        <label for="">Idioma:
-                            <select name="" id="">
-                                <option value="">Selecione</option>
-                                <option value="">Português (pt-br)</option>
-                                <option value="">Inglês</option>
-                                <option value="">Espanhol</option>
-                                <option value="">Outro</option>
-                            </select>
-                        </label>
-                        <label for="">Link:
-                            <input type="text" placeholder="Link para a produção">
-                        </label>
-                        <button> + produção </button>
-                </div>
+            <form onsubmit="salvarPerfil(event)">
+                
+                <!-- Sessão 1: Informações Pessoais e Acadêmicas -->
+                <section class="form-section">
+                    <h2>Informações Gerais</h2>
+                    
+                    <!-- Linha 1: Nome e Sobrenome -->
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome">
+                        </div>
+                    </div>
+
+                    <!-- Descrição (Textarea) -->
+                    <div class="input-group">
+                        <label for="descricao">Descrição Profissional (Breve):</label>
+                        <textarea id="descricao" name="descricao" rows="3" placeholder="Insira uma descrição breve e cativante sobre sua área de atuação ou especialidade."></textarea>
+                    </div>
+                    
+                    <!-- Formação e Disciplinas -->
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="formacao">Formação:</label>
+                            <input type="text" id="formacao" name="formacao" placeholder="Ex.: Doutor em Física, Mestre em História">
+                        </div>
+                        <div class="input-group">
+                            <label for="disciplinas">Disciplinas/Especialidades:</label>
+                            <input type="text" id="disciplinas" name="disciplinas" placeholder="Ex.: Cálculo I, Biologia II (separar por vírgula)">
+                        </div>
+                    </div>
+
+                    <!-- Upload de Foto de Perfil -->
+                    <div class="input-group">
+                        <label for="foto_perfil">Foto de perfil:</label>
+                        <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*">
+                    </div>
                 </section>
 
-                <button>Salvar informações</button>
-                <button>Voltar à página inicial</button>
-            </div>
+                <!-- Sessão 2: Contato e Localização -->
+                <section class="form-section">
+                    <h2>Contato e Disponibilidade</h2>
+                    
+                    <!-- E-mail (Obrigatório) -->
+                    <div class="input-group">
+                        <label for="email">E-mail (Principal):</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@dominio.com" required>
+                    </div>
+
+                    <!-- Lattes e LinkedIn -->
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="lattes">Currículo Lattes (URL):</label>
+                            <input type="url" id="lattes" name="lattes" placeholder="https://lattes.cnpq.br/">
+                        </div>
+                        <div class="input-group">
+                            <label for="linkedin">LinkedIn (URL):</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/seuusuario">
+                        </div>
+                    </div>
+                    
+                    <!-- Gabinete e Horários -->
+                    <div class="two-cols">
+                        <div class="input-group">
+                            <label for="gabinete">Gabinete/Departamento:</label>
+                            <select name="gabinete" id="gabinete">
+                                <option value="" disabled selected>Selecione uma área</option>
+                                <option value="humanas">Humanas</option>
+                                <option value="naturezas">Ciências da Natureza</option>
+                                <option value="exatas">Matemática e Exatas</option>
+                                <option value="linguagens">Linguagens</option>
+                                <option value="informatica">Informática</option>
+                                <option value="metalurgia">Metalurgia</option>
+                                <option value="administracao">Administração</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="horarios">Horários de Atendimento/Disponibilidade:</label>
+                            <input type="text" id="horarios" name="horarios" placeholder="Ex.: Seg: 12:00-13:30, Qua: 14:00-15:30">
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Botões de Ação do Perfil -->
+                <div class="button-group">
+                    <button type="button" onclick="voltarParaHome()" class="btn-secondary">
+                        Voltar à Página Inicial
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Salvar Alterações
+                    </button>
+                </div>
+            </form>
         </div>
-        </form>
+
+        <!-- Container 2: Cadastrar Nova Produção Acadêmica -->
+        <div class="form-container" id="producao-form-container">
+            <h1>Cadastrar Nova Produção Acadêmica</h1>
+            
+            <!-- Caixa de Mensagens (Feedback da Produção) -->
+            <div id="producao-message-box" class="feedback-box hidden">
+                <!-- As mensagens de sucesso/erro aparecerão aqui -->
+            </div>
+
+            <!-- Form para Múltiplas Produções -->
+            <form onsubmit="salvarProducao(event)">
+                
+                <!-- Container onde as produções serão adicionadas -->
+                <div id="producoes-container">
+                    
+                    <!-- Bloco de Produção #1 (Modelo clonável) -->
+                    <div class="producao-item" data-id="1">
+                        <h3>
+                            Produção #<span class="producao-index">1</span>
+                            <!-- Botão de remover oculto para o primeiro item, mas clonável -->
+                            <button type="button" onclick="removerProducao(this)" class="btn-remove hidden">
+                                Remover
+                            </button>
+                        </h3>
+
+                        <div class="input-group">
+                            <label for="producao_titulo_1">Título da Produção: <span style="color: red;">*</span></label>
+                            <input type="text" id="producao_titulo_1" name="titulo_1" placeholder="Ex.: O Impacto da IA na Educação Superior" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="producao_autor_1">Autores (separados por vírgula): <span style="color: red;">*</span></label>
+                            <textarea id="producao_autor_1" name="autor_1" rows="2" placeholder="Ex.: João Silva, Maria Gomes, Pedro Alvares" required></textarea>
+                        </div>
+                        
+                        <!-- Tipo e Data de Publicação -->
+                        <div class="three-cols">
+                            <div class="input-group">
+                                <label for="producao_tipo_1">Tipo de Produção: <span style="color: red;">*</span></label>
+                                <select id="producao_tipo_1" name="tipo_1" required onchange="toggleOtherField(this.id, 'tipo_outro_div_1')">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="Livro">Livro</option>
+                                    <option value="Artigo">Artigo</option>
+                                    <option value="Tese">Tese</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Campo "Outro Tipo" (Condicional) -->
+                            <div id="tipo_outro_div_1" class="input-group hidden">
+                                <label for="tipo_outro_1">Especifique o Tipo:</label>
+                                <input type="text" id="tipo_outro_1" name="tipo_outro_1" placeholder="Ex.: Capítulo de Livro">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="producao_data_1">Data de Publicação:</label>
+                                <input type="date" id="producao_data_1" name="data_pub_1">
+                            </div>
+                        </div>
+
+                        <!-- Idioma e Link -->
+                        <div class="three-cols">
+                            <div class="input-group">
+                                <label for="producao_idioma_1">Idioma: <span style="color: red;">*</span></label>
+                                <select id="producao_idioma_1" name="idioma_1" required onchange="toggleOtherField(this.id, 'idioma_outro_div_1')">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="Português (pt-br)">Português (pt-br)</option>
+                                    <option value="Inglês">Inglês</option>
+                                    <option value="Espanhol">Espanhol</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <!-- Campo "Outro Idioma" (Condicional) -->
+                            <div id="idioma_outro_div_1" class="input-group hidden">
+                                <label for="idioma_outro_1">Especifique o Idioma:</label>
+                                <input type="text" id="idioma_outro_1" name="idioma_outro_1" placeholder="Ex.: Alemão">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="producao_link_1">Link (URL):</label>
+                                <input type="url" id="producao_link_1" name="link_1" placeholder="https://doi.org/...">
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /#producoes-container -->
+
+                <!-- Botão de Ação da Produção -->
+                <div class="button-group" style="justify-content: space-between;">
+                    <button type="button" onclick="adicionarNovaProducao()" class="btn-add">
+                        + Adicionar Mais Produção
+                    </button>
+                    <button type="submit" class="btn-save-prod">
+                        Salvar Todas as Produções
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
-    <footer></footer>
+
+    <footer style="margin-top: 20px; color: rgba(255, 255, 255, 0.7);">
+        &copy; 2024 Meu Sistema.
+    </footer>
+
+    <!-- Link para o JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
