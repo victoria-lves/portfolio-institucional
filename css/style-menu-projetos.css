@@ -1,0 +1,336 @@
+
+:root {
+    --primary-color: #006400;
+    --secondary-color: #f4f4f9;
+    --accent-color: #ffd700;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-dark);
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ELEMENTOS HEADER */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#logo {
+    height: 50px;
+    width: auto;
+}
+
+#logo-link:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.nav-items {
+    display: flex;
+    gap: 30px;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+.nav-items a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* --- SEÇÃO INSTITUCIONAL --- */
+.institucional {
+    padding: 40px 0;
+    background-color: var(--card-bg);
+    text-align: center;
+}
+
+.institucional h1 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.institucional h2 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* --- SEÇÃO MENU --- */
+.menu {
+    padding: 30px 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.menu-items a {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-items a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+/* --- SEPARADOR --- */
+.separator {
+    height: 2px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+/* --- SEÇÃO PROJETOS --- */
+.projetos {
+    padding: 40px 0;
+    background-color: var(--card-bg);
+}
+
+.projetos-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.projeto-form {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.projeto-form h3 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+.gabinetes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gabinete-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gabinete-item input {
+    width: auto;
+}
+
+.descricao {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.descricao h3 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.descricao-list {
+    list-style-type: none;
+}
+
+.descricao-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-left: 20px;
+}
+
+.descricao-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding-top: 50px;
+    font-weight: 300;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-content h4 {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.footer-content p {
+    line-height: 1.7;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a i {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover i {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+#copyright {
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .projetos-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .institucional h1 {
+        font-size: 2rem;
+    }
+    .institucional h2 {
+        font-size: 1.5rem;
+    }
+    header .container {
+        justify-content: center;
+    }
+    .nav-items {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .gabinetes {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        text-align: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
