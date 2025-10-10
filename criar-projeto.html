@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Projeto</title>
-    <!-- Link para o CSS customizado -->
+
     <link rel="stylesheet" href="css/style-criar-projeto.css">
-    <!-- Links de fontes -->
+    <!-- fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
     <main>
-        
         <!-- Container Principal: Cadastro de Projeto -->
         <div class="form-container" id="projeto-container">
             
@@ -78,7 +77,6 @@
                     </div>
                 </section>
 
-                <!-- Sessão 3: Financiamento e Parcerias -->
                 <section class="form-section">
                     <h2>Financiamento e Colaboração</h2>
 
@@ -90,7 +88,7 @@
                     <div class="two-cols">
                         <div class="input-group">
                             <label for="financiamento">Valor do Financiamento (R$):</label>
-                            <!-- Usando type="number" para validação, e formatando a exibição no JS ou backend -->
+                        
                             <input type="number" id="financiamento" name="financiamento" placeholder="Ex.: 15000.00" step="0.01" min="0">
                         </div>
                         <div class="input-group">
@@ -105,7 +103,6 @@
                     </div>
                 </section>
 
-                <!-- Sessão 4: Resultados e Recursos -->
                 <section class="form-section">
                     <h2>Objetivos e Entregáveis</h2>
 
@@ -132,7 +129,6 @@
 
                 </section>
                 
-                <!-- Botões de Ação do Projeto -->
                 <div class="button-group">
                     <button type="button" onclick="voltarParaHome()" class="btn-secondary">
                         Cancelar e Voltar
@@ -144,12 +140,5 @@
             </form>
         </div>
     </main>
-
-    <footer style="margin-top: 20px; color: rgba(255, 255, 255, 0.7);">
-        &copy; 2024 Meu Sistema.
-    </footer>
-
-    <!-- Link para o JavaScript -->
-    <script src="projeto_script.js"></script>
 </body>
 </html>
