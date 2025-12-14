@@ -1,4 +1,5 @@
 <?php
+// --- PARTE DA LÓGICA (PHP) ---
 session_start();
 include 'conexao.php';
 
@@ -8,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Busca o usuário pelo email
-    $stmt = $conn->prepare("SELECT id, senha, nivel FROM usuario WHERE email = ?");
+    // Previne injeção de SQL e busca o usuário
+    $stmt = $conn->prepare("SELECT id, nome, senha, nivel FROM usuario WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -19,19 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($senha, $user['senha'])) {
             // Sucesso! Salva dados na sessão
             $_SESSION['usuario_id'] = $user['id'];
+            $_SESSION['usuario_nome'] = $user['nome'];
             $_SESSION['nivel'] = $user['nivel'];
             
-            // Busca o ID do professor associado a este usuário para facilitar depois
-            $stmt_prof = $conn->prepare("SELECT id, nome FROM professor WHERE id_usuario = ?");
+            // Busca o ID do professor associado para facilitar edições futuras
+            $stmt_prof = $conn->prepare("SELECT id FROM professor WHERE id_usuario = ?");
             $stmt_prof->bind_param("i", $user['id']);
             $stmt_prof->execute();
             $prof = $stmt_prof->get_result()->fetch_assoc();
             
-            $_SESSION['professor_id'] = $prof['id'];
-            $_SESSION['professor_nome'] = $prof['nome'];
+            // Se tiver perfil de professor, salva o ID, senão deixa null (será criado ao tentar editar)
+            $_SESSION['professor_id'] = $prof ? $prof['id'] : null;
 
             // Redireciona para o painel
-            header("Location: painel.php"); 
+            header("Location: dashboard.php"); 
             exit();
         } else {
             $erro = "Senha incorreta.";
@@ -46,38 +48,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Login - IFMG</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Acesso Restrito</title>
+    <link rel="stylesheet" href="css/style-login.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+
     <style>
-        body { background: #004d40; color: white; } /* Cor verde IFMG */
-        .card { border: none; border-radius: 15px; }
+        /* Pequeno estilo extra para mostrar a mensagem de erro */
+        .msg-erro {
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
-<body class="d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <div class="card shadow p-5" style="width: 100%; max-width: 400px; color: #333;">
-        <div class="text-center mb-4">
-            <h3>Acesso Restrito</h3>
-            <p class="text-muted">Gestão de Portfólio</p>
-        </div>
+<body>
+    <main class="container">
+        <form method="POST" action="">
+            <h1>Login para Professores</h1>
 
-        <?php if($erro): ?>
-            <div class="alert alert-danger text-center"><?php echo $erro; ?></div>
-        <?php endif; ?>
+            <?php if(!empty($erro)): ?>
+                <div class="msg-erro"><?php echo $erro; ?></div>
+            <?php endif; ?>
 
-        <form method="POST">
-            <div class="mb-3">
-                <label>E-mail</label>
-                <input type="email" name="email" class="form-control" required>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="E-mail" required>
             </div>
-            <div class="mb-3">
-                <label>Senha</label>
-                <input type="password" name="senha" class="form-control" required>
+            <div class="input-box">
+                <input type="password" name="senha" placeholder="Senha" required>
             </div>
-            <button type="submit" class="btn btn-success w-100 fw-bold">Entrar</button>
+            
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar senha
+                </label>
+                <a href="recuperar-senha.html" id="link-password">Esqueceu sua senha?</a>
+            </div>
+            
+            <button type="submit">Login</button>
+            
+            <div class="register">
+                <p>É professor e não tem acesso? <a href="#">Contate-nos!</a></p>
+                <a href="menu-principal.html">Voltar ao menu</a>
+            </div>
         </form>
-        <div class="text-center mt-3">
-            <a href="menu-principal.php" class="text-decoration-none text-muted">Voltar ao site</a>
-        </div>
-    </div>
+    </main>
 </body>
 </html>

@@ -1,71 +1,42 @@
 <?php
+session_start();
 include 'conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Coletando dados com proteção contra campos vazios
-    $id = $_POST['id'] ?? null;
-    $nome = $_POST['nome'] ?? '';
-    $bio = $_POST['bio'] ?? ''; // Certifique-se que no HTML o name="bio"
-    $formacao = $_POST['formacao'] ?? '';
-    $disciplina = $_POST['disciplina'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $lattes = $_POST['lattes'] ?? '';
-    $linkedin = $_POST['linkedin'] ?? '';
-    $gabinete = $_POST['gabinete'] ?? '';
-    $atendimento = $_POST['atendimento'] ?? '';
-
-    // Lógica da Imagem
-    $caminho_foto = null;
-    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
-        $ext = pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION);
-        $novo_nome = uniqid() . "." . $ext;
-        // Certifique-se que a pasta 'uploads/' existe!
-        $caminho_foto = "uploads/" . $novo_nome;
-        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminho_foto);
+    // Segurança: garante que o usuário só edita o próprio perfil
+    if ($_POST['id'] != $_SESSION['professor_id']) {
+        die("Acesso não autorizado.");
     }
 
-    if ($id) {
-        // --- ATUALIZAR (UPDATE) ---
-        $sql = "UPDATE professor SET nome=?, bio=?, disciplina=?, formacao=?, atendimento=?, email=?, lattes=?, linkedin=?, gabinete=?";
+    $id = $_POST['id'];
+    $nome = $_POST['nome'];
+    $bio = $_POST['bio'];
+    $formacao = $_POST['formacao'];
+    $disciplina = $_POST['disciplina'];
+    $email = $_POST['email'];
+    $gabinete = $_POST['gabinete'];
 
-        if ($caminho_foto) {
-            $sql .= ", pfp=?";
+    // Upload de Imagem
+    $sql_img = "";
+    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
+        $ext = pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION);
+        $novo_nome = "prof_" . $id . "_" . uniqid() . "." . $ext;
+        if(move_uploaded_file($_FILES['foto_perfil']['tmp_name'], "uploads/" . $novo_nome)){
+            $caminho_foto = "uploads/" . $novo_nome;
+            // Atualiza o SQL para incluir a foto
+            $stmt = $conn->prepare("UPDATE professor SET nome=?, bio=?, formacao=?, disciplina=?, email=?, gabinete=?, pfp=? WHERE id=?");
+            $stmt->bind_param("sssssssi", $nome, $bio, $formacao, $disciplina, $email, $gabinete, $caminho_foto, $id);
         }
-        $sql .= " WHERE id=?";
-
-        $stmt = $conn->prepare($sql);
-
-        // --- DEBUG DE ERRO ---
-        if (!$stmt) {
-            die("Erro no SQL (UPDATE): " . $conn->error);
-        }
-
-        if ($caminho_foto) {
-            $stmt->bind_param("ssssssssssi", $nome, $bio, $disciplina, $formacao, $atendimento, $email, $lattes, $linkedin, $gabinete, $caminho_foto, $id);
-        } else {
-            $stmt->bind_param("sssssssssi", $nome, $bio, $disciplina, $formacao, $atendimento, $email, $lattes, $linkedin, $gabinete, $id);
-        }
-
     } else {
-        // --- CRIAR NOVO (INSERT) ---
-        $sql = "INSERT INTO professor (nome, bio, disciplina, formacao, atendimento, email, lattes, linkedin, gabinete, pfp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = $conn->prepare($sql);
-
-        // --- DEBUG DE ERRO ---
-        if (!$stmt) {
-            // Isso vai mostrar na tela exatamente qual coluna ou tabela está faltando
-            die("Erro no SQL (INSERT): " . $conn->error);
-        }
-
-        // Se passar daqui, o prepare funcionou
-        $stmt->bind_param("ssssssssss", $nome, $bio, $disciplina, $formacao, $atendimento, $email, $lattes, $linkedin, $gabinete, $caminho_foto);
+        // Sem atualizar foto
+        $stmt = $conn->prepare("UPDATE professor SET nome=?, bio=?, formacao=?, disciplina=?, email=?, gabinete=? WHERE id=?");
+        $stmt->bind_param("ssssssi", $nome, $bio, $formacao, $disciplina, $email, $gabinete, $id);
     }
 
     if ($stmt->execute()) {
-        header("Location: listar_professores.php");
+        header("Location: dashboard.php");
     } else {
-        echo "Erro ao salvar: " . $stmt->error;
+        echo "Erro ao atualizar: " . $conn->error;
     }
 }
 ?>

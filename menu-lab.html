@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nossos Laboratórios | IFMG </title>
+    <title>Nossos Laboratórios | IFMG</title>
 
     <link rel="stylesheet" href="css/style-menu-lab.css" />
 
@@ -29,150 +29,166 @@
     <!--API PARA FOTO PANORAMICA-->
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   </head>
-<body>
+  <body>
     <header>
-        <div class="container">
-          <a href="menu-principal.html" id="logo-link">
-            <img src="img/logo-b.png" alt="" id="logo" />
-          </a>
-          <nav class="nav-items">
-            <a href="menu-cursos.html">CURSOS</a>
-            <a href="menu-lab.html">LABORATÓRIOS</a>
-            <a href="menu-docentes.html">DOCENTES</a>
-            <a href="menu-projetos.html">PROJETOS</a>
-            <a href="login.html">ACESSO RESTRITO</a>
-          </nav>
-        </div>
+      <div class="container">
+        <a href="menu-principal.html" id="logo-link">
+          <img src="img/logo-b.png" alt="" id="logo" />
+        </a>
+        <nav class="nav-items">
+          <a href="menu-cursos.html">CURSOS</a>
+          <a href="menu-lab.html">LABORATÓRIOS</a>
+          <a href="menu-docentes.html">DOCENTES</a>
+          <a href="menu-projetos.html">PROJETOS</a>
+          <a href="login.php">ACESSO RESTRITO</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section class="theme" style="background-image: url();">
+      <section class="theme" style="background-image: url()">
         <div class="theme-content">
           <h1 class="theme-title">Nossos laboratórios</h1>
-          <p class="theme-desc">Conheça a infrasestrutura e equipametos para pesquisa da instituição. </p>
+          <p class="theme-desc">
+            Conheça a infrasestrutura e equipametos para pesquisa da
+            instituição.
+          </p>
         </div>
       </section>
 
       <!--Caixinhas-->
       <div class="filtro">
-          <h2>Filtrar por</h2>
-          <form action="">
-            <h3>Área</h3>
-          <label for=""> <input type="checkbox">Ciências </label>
-          <label for=""> <input type="checkbox">Informática </label>
-          <label for=""> <input type="checkbox">Metalurgia </label>
-          <label for=""> <input type="checkbox">Pesquisa </label>
+        <h2>Filtrar por</h2>
+        <form action="">
+          <h3>Área</h3>
+          <label for=""> <input type="checkbox" />Ciências </label>
+          <label for=""> <input type="checkbox" />Informática </label>
+          <label for=""> <input type="checkbox" />Metalurgia </label>
+          <label for=""> <input type="checkbox" />Pesquisa </label>
           <button>Procurar</button>
+        </form>
+      </div>
 
-          </form>
+      <!--Fotos de laboratório-->
+      <div class="grid-cards">
+        <!--labs de informatica-->
+        <div class="card-laboratorio" id="lab-info">
+          <a href="lab-inf-1.html">
+            <img src="" alt="" />
+          </a>
+          <h3>Laboratório de Informática 1</h3>
+          <h4>Capacidade: 40 alunos</h4>
+        </div>
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Informática 2</h3>
+          <h4>Capacidade: 40 alunos</h4>
+        </div>
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Informática 3</h3>
+          <h4>Capacidade: 40 alunos</h4>
+        </div>
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Informática 4</h3>
+          <h4>Capacidade: 40 alunos</h4>
+        </div>
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Robótica</h3>
+          <h4>...</h4>
         </div>
 
-        <!--Fotos de laboratório-->
-        <div class="grid-cards">
-          <!--labs de informatica-->
-            <div class="card-laboratorio" id="lab-info">
-              <a href="lab-inf-1.html">
-                <img src="" alt="">
-              </a>
-              <h3>Laboratório de Informática 1</h3>
-              <h4>Capacidade: 40 alunos</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Informática 2</h3>
-              <h4>Capacidade: 40 alunos</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Informática 3</h3>
-              <h4>Capacidade: 40 alunos</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Informática 4</h3>
-              <h4>Capacidade: 40 alunos</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Robótica</h3>
-              <h4>...</h4>
-            </div>
-
-          <!--labs de metalurgia-->
-            <div class="card-laboratorio" id="lab-met">
-              <a href="lab-met-1.html">
-                <img src="" alt="">
-              </a>
-              <h3>Laboratório de Metalurgia 1</h3>
-              <h4>...</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-met">
-              <img src="" alt="">
-              <h3>Laboratório de Metalurgia 2</h3>
-              <h4>...</h4>
-            </div>
-            <div class="card-laboratorio" id="lab-met">
-              <img src="" alt="">
-              <h3>Laboratório de Metalurgia 3</h3>
-              <h4>...</h4>
-            </div>
-
-            <!--lab de ciencias-->
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Ciências</h3>
-              <h4>...</h4>
-            </div>
-
-            <!--lab de pesquisa-->
-            <div class="card-laboratorio" id="lab-info">
-              <img src="" alt="">
-              <h3>Laboratório de Pesquisa</h3>
-              <h4>...</h4>
-            </div>
+        <!--labs de metalurgia-->
+        <div class="card-laboratorio" id="lab-met">
+          <a href="lab-met-1.html">
+            <img src="" alt="" />
+          </a>
+          <h3>Laboratório de Metalurgia 1</h3>
+          <h4>...</h4>
         </div>
+        <div class="card-laboratorio" id="lab-met">
+          <a href="lab-met-2.html">
+            <img src="" alt="">
+          </a>
+          <h3>Laboratório de Metalurgia 2</h3>
+          <h4>...</h4>
+        </div>
+        <div class="card-laboratorio" id="lab-met">
+          <a href="lab-met-3.html">
+            <img src="" alt="">
+          </a>
+          <h3>Laboratório de Metalurgia 3</h3>
+          <h4>...</h4>
+        </div>
+
+        <!--lab de ciencias-->
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Ciências</h3>
+          <h4>...</h4>
+        </div>
+
+        <!--lab de pesquisa-->
+        <div class="card-laboratorio" id="lab-info">
+          <img src="" alt="" />
+          <h3>Laboratório de Pesquisa</h3>
+          <h4>...</h4>
+        </div>
+      </div>
     </main>
 
-
     <footer>
-        <div class="container">
-          <div class="footer-content">
-            <div id="footer-address">
-              <h4>Endereço</h4>
-              <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
-            </div>
-            <div id="footer-schedule">
-              <h4>Funcionamento</h4>
-              <p>Segunda a Sexta: 08h - 22h</p>
-              <p>Sabado: 12h - 20h</p>
-            </div>
-            <div id="footer-contact">
-              <h4>Contato</h4>
-              <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
+      <div class="container">
+        <div class="footer-content">
+          <div id="footer-address">
+            <h4>Endereço</h4>
+            <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+          </div>
+          <div id="footer-schedule">
+            <h4>Funcionamento</h4>
+            <p>Segunda a Sexta: 08h - 22h</p>
+            <p>Sabado: 12h - 20h</p>
+          </div>
+          <div id="footer-contact">
+            <h4>Contato</h4>
+            <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
             <p>Telefone: (31) 2137-5700</p>
-            </div>
-            <div id="footer-social">
-              <h4>Redes Sociais</h4>
-              <div class="social-icons">
-                <a href="https://www.youtube.com/@IFMGCampusOuroBranco" target="_blank" aria-label="Youtube">
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Youtube">
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Youtube">
-                  <i class="fa-brands fa-facebook"></i>
-                </a>
-              </div>
+          </div>
+          <div id="footer-social">
+            <h4>Redes Sociais</h4>
+            <div class="social-icons">
+              <a
+                href="https://www.youtube.com/@IFMGCampusOuroBranco"
+                target="_blank"
+                aria-label="Youtube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/ifmg.ourobranco"
+                target="_blank"
+                aria-label="Youtube"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/ifmgob"
+                target="_blank"
+                aria-label="Youtube"
+              >
+                <i class="fa-brands fa-facebook"></i>
+              </a>
             </div>
           </div>
         </div>
-        <div id="copyright">
-          <p>
-            &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
-          </p>
-        </div>
+      </div>
+      <div id="copyright">
+        <p>
+          &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
+        </p>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>
