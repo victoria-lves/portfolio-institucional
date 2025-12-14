@@ -465,4 +465,21 @@
     .docente-imagem {
       height: 200px;
     }
+
+         .hidden {
+      display: none !important;
+    }
+   
+    .search-box {
+      margin: 15px 0;
+    }
+   
+    .search-box input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
   }

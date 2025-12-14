@@ -1,0 +1,692 @@
+:root {
+    --primary-color: #006400;
+    --secondary-color: #f4f4f9;
+    --accent-color: #ffd700;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --status-ativo: #28a745;
+    --status-concluido: #17a2b8;
+    --status-pendente: #6c757d;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-dark);
+    background-color: var(--secondary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+main {
+    flex-grow: 1;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* --- HEADER --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+#logo {
+    height: 50px;
+    width: auto;
+}
+
+
+#logo-link:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+
+.nav-items {
+    display: flex;
+    gap: 30px;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+
+.nav-items a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+
+/* --- CABEÇALHO DO PROJETO --- */
+.projeto-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #004d00 100%);
+    color: var(--text-light);
+    padding: 40px 0;
+}
+
+
+.breadcrumb {
+    margin-bottom: 30px;
+}
+
+
+.breadcrumb a {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+
+.breadcrumb a:hover {
+    color: white;
+    gap: 12px;
+}
+
+
+.area-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+
+.projeto-titulo {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+
+.projeto-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+
+.meta-item i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+
+.status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+
+.status.ativo {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.projeto-conteudo {
+    padding: 60px 0;
+}
+
+
+.conteudo-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-top: 4px solid var(--primary-color);
+}
+
+
+.card h2 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 20px 30px;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.card h2 i {
+    color: var(--primary-color);
+}
+
+
+.card-content {
+    padding: 30px;
+}
+
+
+/* --- COLUNA PRINCIPAL --- */
+.coluna-principal .card-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+
+.coluna-principal h3 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 25px 0 15px 0;
+}
+
+
+.coluna-principal ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+
+.coluna-principal ul li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+
+.coluna-principal ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+
+/* Galeria */
+.galeria-projeto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+
+.galeria-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+
+.galeria-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.galeria-item .legenda {
+    padding: 15px;
+    background-color: var(--secondary-color);
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+
+/* --- COLUNA LATERAL --- */
+.info-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+.info-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+
+.info-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+.info-label i {
+    font-size: 1.1rem;
+}
+
+
+.info-value strong {
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.info-value p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+
+.info-value .email {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+
+.info-value ul {
+    list-style-type: none;
+    margin-top: 5px;
+}
+
+
+.info-value ul li {
+    padding: 3px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+.info-value ul li:before {
+    content: "→";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+
+/* Valor do financiamento */
+.valor-financiamento {
+    margin-bottom: 15px;
+}
+
+
+.valor {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+
+.periodo {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+.detalhes-financiamento ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+
+.detalhes-financiamento ul li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+.detalhes-financiamento ul li:last-child {
+    border-bottom: none;
+}
+
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+.tag {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+}
+
+
+/* Links */
+.link-projeto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+
+.link-projeto:hover {
+    color: #004d00;
+    gap: 12px;
+}
+
+
+.link-projeto i {
+    font-size: 0.9rem;
+}
+
+
+/* Progresso */
+.progresso-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+.progresso-bar {
+    height: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+
+.progresso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #004d00);
+    border-radius: 5px;
+}
+
+
+.progresso-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.milestone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+
+.milestone i {
+    font-size: 1.1rem;
+}
+
+
+.milestone.concluido i {
+    color: var(--status-concluido);
+}
+
+
+.milestone.ativo i {
+    color: var(--status-ativo);
+    animation: spin 2s linear infinite;
+}
+
+
+.milestone.pendente i {
+    color: var(--status-pendente);
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* --- SEÇÃO DE CONTATO --- */
+.projeto-contato {
+    padding-bottom: 60px;
+}
+
+
+.contato-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+
+.contato-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+
+.contato-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+
+.contato-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+
+.contato-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+
+.contato-item p i {
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding-top: 50px;
+    font-weight: 300;
+}
+
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+
+.footer-content h4 {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+
+.footer-content p {
+    line-height: 1.7;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+
+.social-icons a i {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+
+.social-icons a:hover i {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+
+#copyright {
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .conteudo-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+   
+    .projeto-titulo {
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .projeto-titulo {
+        font-size: 1.8rem;
+    }
+   
+    .projeto-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+   
+    .card h2 {
+        font-size: 1.3rem;
+        padding: 15px 20px;
+    }
+   
+    .card-content {
+        padding: 20px;
+    }
+   
+    .contato-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 576px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+   
+    .nav-items {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+   
+    .projeto-titulo {
+        font-size: 1.5rem;
+    }
+   
+    .galeria-projeto {
+        grid-template-columns: 1fr;
+    }
+   
+    .footer-content {
+        text-align: center;
+    }
+   
+    .social-icons {
+        justify-content: center;
+    }
+}
