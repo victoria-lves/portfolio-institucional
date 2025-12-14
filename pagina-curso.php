@@ -5,7 +5,6 @@ include 'conexao.php';
 $id_curso = $_GET['id'] ?? null;
 
 if (!$id_curso) {
-    // Redireciona ou mostra erro com link de volta
     die("<div style='text-align:center; padding:50px; font-family:sans-serif;'>Curso não selecionado. <a href='menu-cursos.php'>Voltar para Cursos</a></div>");
 }
 
@@ -21,7 +20,36 @@ if (!$curso) {
 
 // Imagem padrão se não houver
 $img_capa = !empty($curso['imagem']) ? $curso['imagem'] : 'img/escola.png';
+
+// Lógica de SEO baseada no nome do curso
+$nome_curso = $curso['nome'];
+$seo_title = $nome_curso . " | IFMG Ouro Branco";
+$seo_desc = "Conheça o curso de " . $nome_curso . " do IFMG Campus Ouro Branco. Grade curricular, mercado de trabalho e infraestrutura completa.";
+$seo_keywords = "cursos IFMG Ouro Branco, vestibular IFMG"; // Padrão
+
+// Personalização por curso (Baseado na sua lista)
+if (stripos($nome_curso, 'Administração') !== false && stripos($curso['nivel'], 'Técnico') !== false) {
+    $seo_keywords = "técnico em administração integrado IFMG Ouro Branco, curso técnico administração ensino médio, administração integrado IFMG duração";
+    $seo_desc = "Faça o Técnico em Administração Integrado ao Ensino Médio no IFMG Ouro Branco. Formação de excelência para o mercado de trabalho.";
+} 
+elseif (stripos($nome_curso, 'Informática') !== false && stripos($curso['nivel'], 'Técnico') !== false) {
+    $seo_keywords = "técnico em informática IFMG Ouro Branco, curso técnico informática integrado, formação técnica informática campus Ouro Branco, tecnologia informação IFMG";
+}
+elseif (stripos($nome_curso, 'Metalurgia') !== false && stripos($curso['nivel'], 'Técnico') !== false) {
+    $seo_keywords = "técnico em metalurgia IFMG Ouro Branco, curso metalurgia integrado ensino médio, formação técnica metalurgia Minas Gerais";
+}
+elseif (stripos($nome_curso, 'Sistemas de Informação') !== false) {
+    $seo_keywords = "bacharelado sistemas informação IFMG Ouro Branco, curso SI graduação IFMG, tecnologia informação graduação campus Ouro Branco, Sistemas de Informação nota corte IFMG";
+    $seo_title = "Bacharelado em Sistemas de Informação | IFMG Ouro Branco";
+}
+elseif (stripos($nome_curso, 'Engenharia Metalúrgica') !== false) {
+    $seo_keywords = "engenharia metalúrgica IFMG Ouro Branco, curso engenharia metalúrgica Minas Gerais, graduação metalurgia IFMG, engenheiro metalurgista formação";
+}
+// ... Adicione os outros `elseif` para Pedagogia, Gestão, etc.
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -29,7 +57,9 @@ $img_capa = !empty($curso['imagem']) ? $curso['imagem'] : 'img/escola.png';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo htmlspecialchars($curso['nome']); ?> | IFMG</title>
+  <title><?php echo htmlspecialchars($seo_title); ?></title>
+  <meta name="description" content="<?php echo htmlspecialchars($seo_desc); ?>">
+  <meta name="keywords" content="<?php echo htmlspecialchars($seo_keywords); ?>">
 
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   
@@ -63,6 +93,11 @@ $img_capa = !empty($curso['imagem']) ? $curso['imagem'] : 'img/escola.png';
   <main>
     <section class="theme" style="background-image: url('<?php echo htmlspecialchars($img_capa); ?>');">
       <div class="theme-overlay"></div>
+      
+      <a href="menu-cursos.php" class="btn-voltar-canto">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </a>
+
       <div class="theme-content">
         <span class="area-badge"><?php echo htmlspecialchars($curso['nivel']); ?></span>
         <h1 class="theme-title"><?php echo htmlspecialchars($curso['nome']); ?></h1>
@@ -147,6 +182,7 @@ $img_capa = !empty($curso['imagem']) ? $curso['imagem'] : 'img/escola.png';
               <h3><i class="fa-solid fa-user-tie"></i> Coordenação</h3>
               <div class="coord-info">
                 <p class="coord-nome"><?php echo htmlspecialchars($curso['coordenador']); ?></p>
+                
                 <?php if (!empty($curso['email_coordenador'])): ?>
                     <p class="coord-email">
                         <i class="fa-solid fa-envelope"></i> <?php echo htmlspecialchars($curso['email_coordenador']); ?>
