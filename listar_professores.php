@@ -1,25 +1,67 @@
 <?php include 'conexao.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Lista de Professores</title>
-    <link rel="stylesheet" href="css/style-editar-perfil.css"> 
+    <link rel="stylesheet" href="css/style-criar-perfil.css">
     <style>
-        .container-lista { max-width: 900px; margin: 50px auto; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
-        th { background-color: #f8f9fa; }
-        .btn-novo { display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; }
-        .btn-editar { color: #007bff; text-decoration: none; font-weight: bold; }
-        .btn-excluir { color: #dc3545; text-decoration: none; margin-left: 10px; font-weight: bold; }
+        .container-lista {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .btn-novo {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-editar {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-excluir {
+            color: #dc3545;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
     <div class="container-lista">
         <h1>Professores Cadastrados</h1>
         <a href="criar_perfil.php" class="btn-novo">+ Novo Professor</a>
-        
+
         <table>
             <thead>
                 <tr>
@@ -36,7 +78,7 @@
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $row['id'] . "</td>";
                         echo "<td>" . $row['nome'] . "</td>";
@@ -55,6 +97,8 @@
             </tbody>
         </table>
         <br>
-        <a href="index.html">Voltar para Home</a> </div>
+        <a href="index.html">Voltar para Home</a>
+    </div>
 </body>
+
 </html>

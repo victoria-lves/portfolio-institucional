@@ -4,40 +4,43 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IFMG Ouro Branco | Futuro em Movimento</title>
-    
-    <link rel="stylesheet" href="style-menu.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style-menu-principal.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
     <header class="glass-header">
-      <div class="container header-content">
-        <a href="menu-principal.php" id="logo-link">
-          <img src="img/logo-b.png" alt="Logo IFMG" id="logo" />
-        </a>
-        
-        <input type="checkbox" id="menu-toggle" class="hidden-toggle">
-        <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+        <div class="container header-content">
+            <a href="menu-principal.php" id="logo-link">
+                <img src="img/logo-b.png" alt="Logo IFMG" id="logo" />
+            </a>
 
-        <nav class="nav-items">
-            <a href="menu-cursos.php">Cursos</a>
-            <a href="menu-lab.html">Laboratórios</a>
-            <a href="menu-docentes.php">Docentes</a>
-            <a href="menu-projetos.php">Projetos</a>
-            
-            <?php if(isset($_SESSION['usuario_id'])): ?>
-                <a href="dashboard.php" class="btn-login logged-in"><i class="fa-solid fa-user"></i> Painel</a>
-            <?php else: ?>
-                <a href="login.php" class="btn-login">Acesso Restrito</a>
-            <?php endif; ?>
-        </nav>
-      </div>
+            <input type="checkbox" id="menu-toggle" class="hidden-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+            <nav class="nav-items">
+                <a href="menu-cursos.php">Cursos</a>
+                <a href="menu-lab.html">Laboratórios</a>
+                <a href="menu-docentes.php">Docentes</a>
+                <a href="menu-projetos.php">Projetos</a>
+
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="dashboard.php" class="btn-login logged-in"><i class="fa-solid fa-user"></i> Painel</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn-login">Acesso Restrito</a>
+                <?php endif; ?>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -52,15 +55,16 @@ session_start();
                 <div class="hero-text">
                     <span class="badge-pill">Instituição Nota Máxima</span>
                     <h1>Transforme o seu <br><span class="text-gradient">Futuro Agora</span></h1>
-                    <p>Ensino público, gratuito e de excelência. Conectando teoria e prática em um ambiente inovador.</p>
-                    
+                    <p>Ensino público, gratuito e de excelência. Conectando teoria e prática em um ambiente inovador.
+                    </p>
+
                     <div class="hero-buttons">
                         <a href="menu-cursos.php" class="btn-primary-glow">Conheça os Cursos</a>
                         <a href="#destaques" class="btn-outline-light">Saiba Mais</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="scroll-indicator">
                 <span>Explore</span>
                 <i class="fa-solid fa-chevron-down"></i>
@@ -113,7 +117,8 @@ session_start();
                         </div>
                     </article>
                     <article class="info-item">
-                        <img src="img/metalurgia.jpg" alt="Projeto 2"> <div class="info-text">
+                        <img src="img/metalurgia.jpg" alt="Projeto 2">
+                        <div class="info-text">
                             <small>Indústria</small>
                             <h4>Novos Materiais Sustentáveis</h4>
                             <a href="menu-projetos.php">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
@@ -125,20 +130,37 @@ session_start();
     </main>
 
     <footer>
-      <div class="container footer-flex">
-        <div class="footer-logo">
-            <img src="img/logo-b.png" alt="IFMG Logo" style="height: 40px; opacity: 0.8;">
-            <p>Rua Afonso Sardinha, 90 - Ouro Branco, MG</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Endereço</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Funcionamento</h4>
+                    <p><i class="fa-regular fa-clock"></i> Seg a Sex: 08h - 22h</p>
+                    <p>Sábado: 12h - 20h</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fa-regular fa-envelope"></i> secretaria.ourobranco@ifmg.edu.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (31) 2137-5700</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
+            </div>
         </div>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2025 IFMG Campus Ouro Branco. Todos os direitos reservados.</p>
-      </div>
     </footer>
 </body>
+
 </html>

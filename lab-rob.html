@@ -1,160 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratório | IFMG</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratório de Robótica | IFMG</title>
 
-    <link rel="stylesheet" href="./src/output.css" />
-    <link rel="stylesheet" href="css/style-lab.css" />
+  <link rel="stylesheet" href="css/style-pagina-lab.css" />
 
-    <!--FONTES UTILIZADAS-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!--ICONES UTILIZADOS-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
-    />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+</head>
 
-    <!--API PARA FOTO PANORAMICA-->
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <a href="menu-principal.php" id="logo-link">
-          <img src="img/logo-b.png" alt="" id="logo" />
-        </a>
-        <nav class="nav-items">
-          <a href="menu-cursos.php">CURSOS</a>
-          <a href="menu-lab.html">LABORATÓRIOS</a>
-          <a href="menu-docentes.php">DOCENTES</a>
-          <a href="menu-projetos.php">PROJETOS</a>
-        </nav>
+<body>
+  <header class="glass-header">
+    <div class="container header-content">
+      <a href="menu-principal.php" id="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo-b.png" alt="Logo do IFMG Campus Ouro Branco" id="logo" />
+      </a>
+      
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-items">
+        <a href="menu-cursos.php">Cursos</a>
+        <a href="menu-lab.html" class="active">Laboratórios</a>
+        <a href="menu-docentes.php">Docentes</a>
+        <a href="menu-projetos.php">Projetos</a>
+        <a href="login.php" class="btn-login">Acesso Restrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="theme" style="background-image: url('https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/12/arduino-board.jpg');">
+      <div class="theme-overlay"></div>
+      <a href="menu-lab.html" class="btn-voltar-canto">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </a>
+      <div class="theme-content">
+        <span class="lab-tag">Automação e Robótica</span>
+        <h1 class="theme-title">Laboratório de Robótica</h1>
+        <p class="theme-desc">Desenvolvimento de sistemas embarcados e projetos de automação.</p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section
-        class="theme"
-        style="
-          background-image: url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/12/arduino-board.jpg);
-        "
-      >
-        <div class="theme-content">
-          <h1 id="theme-title">Laboratório de Robótica</h1>
-          <p id="theme-desc">
-            Conheça nosso laboratório de robótica do Campus.
-          </p>
-        </div>
-      </section>
-
-      <section class="laboratorio">
-        <div class="container">
-          <div class="laboratorio-text">
-            <h2 class="section-title">Sobre o Laboratório</h2>
-            <p class="section-desc">
-              O Laboratório de Pesquisa é um espaço destinado ao desenvolvimento
-              de projetos científicos e de extensão. Nele, docentes de diversas
-              áreas do conhecimento realizam suas atividades de forma
-              colaborativa, utilizando o ambiente de maneira compartilhada e
-              interdisciplinar. O espaço foi disponibilizado para atender às
-              demandas específicas da pesquisa acadêmica, promovendo a
-              integração entre ensino, ciência.
+    <section class="sobre-lab">
+      <div class="container">
+        <div class="split-layout">
+          
+          <div class="lab-info">
+            <h2 class="section-title-left">Sobre o Espaço</h2>
+            <p>
+              O Laboratório de Robótica é um ambiente inovador destinado ao aprendizado prático e ao desenvolvimento de projetos 
+              nas áreas de automação, eletrônica e robótica móvel.
             </p>
+            <p>
+              Neste espaço, alunos dos cursos técnicos e superiores têm acesso a kits educacionais, componentes eletrônicos 
+              e ferramentas de prototipagem para criar desde simples circuitos até robôs autônomos complexos, integrando 
+              hardware e software.
+            </p>
+            
+            <ul class="lab-features">
+                <li><i class="fa-solid fa-check-circle"></i> Bancadas equipadas com fontes e osciloscópios</li>
+                <li><i class="fa-solid fa-check-circle"></i> Kits Arduino e Raspberry Pi</li>
+                <li><i class="fa-solid fa-check-circle"></i> Impressoras 3D para peças personalizadas</li>
+            </ul>
           </div>
-          <div id="foto-panorama"></div>
+
+          <div class="lab-tour">
+            <div id="foto-panorama"></div>
+            <p class="panorama-instruction"><i class="fa-solid fa-arrows-up-down-left-right"></i> Tour Virtual 360º</p>
+          </div>
+
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="equipamentos"></section>
-    </main>
-
-    <footer>
+    <section class="equipamentos-section">
       <div class="container">
-        <div class="footer-content">
-          <div id="footer-address">
-            <h4>Endereço</h4>
-            <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
-          </div>
-          <div id="footer-schedule">
-            <h4>Funcionamento</h4>
-            <p>Segunda a Sexta: 08h - 22h</p>
-            <p>Sabado: 12h - 20h</p>
-          </div>
-          <div id="footer-contact">
-            <h4>Contato</h4>
-            <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
-            <p>Telefone: (31) 2137-5700</p>
-          </div>
-          <div id="footer-social">
-            <h4>Redes Sociais</h4>
-            <div class="social-icons">
-              <a
-                href="https://www.youtube.com/@IFMGCampusOuroBranco"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-youtube"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/ifmg.ourobranco"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/ifmgob"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-facebook"></i>
-              </a>
+        <h2 class="section-title">Infraestrutura Disponível</h2>
+        
+        <div class="equipamentos-grid">
+            
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h4>Kits de Desenvolvimento</h4>
+                <p>Placas Arduino, ESP32 e Raspberry Pi para prototipagem rápida.</p>
             </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-robot"></i></div>
+                <h4>Kits de Robótica Educacional</h4>
+                <p>Conjuntos LEGO Mindstorms e VEX para ensino de lógica e mecânica.</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-wave-square"></i></div>
+                <h4>Instrumentação Eletrônica</h4>
+                <p>Osciloscópios digitais, geradores de função e multímetros de bancada.</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-print"></i></div>
+                <h4>Impressoras 3D</h4>
+                <p>Fabricação de peças mecânicas e estruturas para robôs.</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h4>Fontes de Alimentação</h4>
+                <p>Fontes ajustáveis de bancada para testes de circuitos.</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h4>Estações de Programação</h4>
+                <p>Computadores com IDEs e softwares de simulação instalados.</p>
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Endereço</h4>
+          <p><i class="fa-solid fa-location-dot"></i> Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+        </div>
+        <div class="footer-section">
+          <h4>Funcionamento</h4>
+          <p><i class="fa-regular fa-clock"></i> Seg a Sex: 08h - 22h</p>
+          <p>Sábado: 12h - 20h</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p><i class="fa-regular fa-envelope"></i> secretaria.ourobranco@ifmg.edu.br</p>
+          <p><i class="fa-solid fa-phone"></i> (31) 2137-5700</p>
+        </div>
+        <div class="footer-section">
+          <h4>Redes Sociais</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
           </div>
         </div>
       </div>
-      <div id="copyright">
-        <p>
-          &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
-        </p>
+      <div class="copyright">
+        <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-      pannellum.viewer("foto-panorama", {
+  <script>
+    // Menu Mobile
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-items').classList.toggle('active');
+    });
+
+    // Configuração do Pannellum
+    pannellum.viewer("foto-panorama", {
         type: "equirectangular",
-        panorama: "https://pannellum.org/images/alma.jpg",
+        panorama: "https://pannellum.org/images/alma.jpg", // Substitua pela imagem 360 real
         autoLoad: true,
         showControls: true,
-        compass: true,
+        compass: false,
         hotSpots: [
           {
             pitch: -10,
             yaw: 150,
             type: "info",
-            text: "Mesa de trabalho principal",
+            text: "Bancada de Eletrônica",
           },
           {
             pitch: 0,
             yaw: 40,
             type: "info",
-            text: "Capela de exaustão de gases",
-          },
-        ],
-      });
-    </script>
-  </body>
+            text: "Impressoras 3D",
+          }
+        ]
+    });
+  </script>
+</body>
 </html>

@@ -1,136 +1,156 @@
 <?php
 include 'conexao.php';
 
-// Busca todos os professores cadastrados no banco de dados
-// Ordenamos por nome para ficar organizado
+// Busca todos os professores cadastrados
 $sql = "SELECT * FROM professor ORDER BY nome ASC";
 $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nossos Docentes | IFMG</title>
 
-  <link rel="stylesheet" href="css/style-menu-prof.css" />
+  <link rel="stylesheet" href="style-menu-docentes.css" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
-
   <header>
-    <div class="container">
-      <a href="menu-principal.php" id="logo-link">
-        <img src="img/logo-b.png" alt="" id="logo" />
+    <div class="container header-content">
+      <a href="menu-principal.php" id="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo-b.png" alt="Logo do IFMG Campus Ouro Branco" id="logo" />
       </a>
+      
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
       <nav class="nav-items">
-        <a href="menu-cursos.php">CURSOS</a>
-        <a href="menu-lab.html">LABORATÓRIOS</a>
-        <a href="menu-docentes.php">DOCENTES</a>
-        <a href="menu-projetos.php">PROJETOS</a>
-        <a href="login.php">ACESSO RESTRITO</a>
+        <a href="menu-cursos.php">Cursos</a>
+        <a href="menu-lab.html">Laboratórios</a>
+        <a href="menu-docentes.php" class="active">Docentes</a>
+        <a href="menu-projetos.php">Projetos</a>
+        <a href="login.php" class="btn-login">Acesso Restrito</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="theme">
+      <div class="theme-overlay"></div>
       <div class="theme-content">
-        <h1 class="theme-title">Nossos Docentes</h1>
-        <p class="theme-desc">Conheça os professores da nossa instituição.</p>
+        <h1 class="theme-title">Corpo Docente</h1>
+        <p class="theme-desc">Conheça os professores mestres e doutores dedicados à excelência no ensino.</p>
       </div>
     </section>
 
-    <section class="filtro-docentes">
+    <section class="filtro-section">
       <div class="container">
-        <div class="filtro-content">
-          <div class="filtro-header">
-            <h2>Filtrar por</h2>
-            <div class="search-box">
-              <input type="search" id="searchInput" placeholder="Nome do docente...">
+        <div class="filtro-box">
+          
+          <div class="filtro-top">
+            <div class="search-wrapper">
+              <i class="fa-solid fa-search"></i>
+              <input type="search" id="searchInput" placeholder="Busque por nome do professor...">
+            </div>
+            <div class="filter-label">
+              <i class="fa-solid fa-filter"></i> Filtrar por Área:
             </div>
           </div>
-          <form class="filtro-form">
-            <h3>Gabinete / Área</h3>
-            <div class="filtro-labels">
-              <label for="adm">
-                <input type="checkbox" id="adm" class="gabinete-checkbox" value="Administração"> Administração
+
+          <form class="filtro-form" onsubmit="event.preventDefault()">
+            <div class="filtro-opcoes">
+              <label class="checkbox-container">
+                <input type="checkbox" value="Administração" class="gabinete-checkbox">
+                <span class="checkmark"></span> Administração
               </label>
-              <label for="humanas">
-                <input type="checkbox" id="humanas" class="gabinete-checkbox" value="Humanas"> Humanas
+              <label class="checkbox-container">
+                <input type="checkbox" value="Humanas" class="gabinete-checkbox">
+                <span class="checkmark"></span> Humanas
               </label>
-              <label for="informatica">
-                <input type="checkbox" id="informatica" class="gabinete-checkbox" value="Informática"> Informática
+              <label class="checkbox-container">
+                <input type="checkbox" value="Informática" class="gabinete-checkbox">
+                <span class="checkmark"></span> Informática
               </label>
-              <label for="linguagens">
-                <input type="checkbox" id="linguagens" class="gabinete-checkbox" value="Linguagens"> Linguagens
+              <label class="checkbox-container">
+                <input type="checkbox" value="Linguagens" class="gabinete-checkbox">
+                <span class="checkmark"></span> Linguagens
               </label>
-              <label for="matematica">
-                <input type="checkbox" id="matematica" class="gabinete-checkbox" value="Matemática"> Matemática
+              <label class="checkbox-container">
+                <input type="checkbox" value="Matemática" class="gabinete-checkbox">
+                <span class="checkmark"></span> Matemática
               </label>
-              <label for="metalurgia">
-                <input type="checkbox" id="metalurgia" class="gabinete-checkbox" value="Metalurgia"> Metalurgia
+              <label class="checkbox-container">
+                <input type="checkbox" value="Metalurgia" class="gabinete-checkbox">
+                <span class="checkmark"></span> Metalurgia
               </label>
-              <label for="naturezas">
-                <input type="checkbox" id="naturezas" class="gabinete-checkbox" value="Naturezas"> Naturezas
+              <label class="checkbox-container">
+                <input type="checkbox" value="Naturezas" class="gabinete-checkbox">
+                <span class="checkmark"></span> Naturezas
               </label>
             </div>
-            <button type="button" id="filterButton" class="filtro-button">Filtrar</button>
+            <button type="button" id="btn-limpar" class="btn-filtrar">Limpar Filtros</button>
           </form>
         </div>
       </div>
     </section>
 
-    <section class="grid-docentes">
+    <section class="docentes-section">
       <div class="container">
-        <div class="grid-cards" id="docentesContainer">
-
+        <div class="galeria-grid" id="docentesContainer">
+          
           <?php
-          if ($result->num_rows > 0) {
+          if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
               // Define imagem padrão se não tiver
-              $img = !empty($row['pfp']) ? $row['pfp'] : 'https://via.placeholder.com/300x250?text=Sem+Foto';
-
-              // Tratamento para garantir que atributos HTML fiquem corretos
+              $img = !empty($row['pfp']) ? htmlspecialchars($row['pfp']) : 'https://via.placeholder.com/300x300?text=Sem+Foto';
+              
+              // Sanitização de dados
               $nome = htmlspecialchars($row['nome']);
               $gabinete = htmlspecialchars($row['gabinete']);
               $formacao = htmlspecialchars($row['formacao']);
+              $id = $row['id'];
+              
+              // Define cor do badge baseado na área (opcional, visual extra)
+              $badgeClass = strtolower($gabinete); // ex: informatica, metalurgia...
 
-              // Gera o Card HTML dinamicamente
-              // Importante: data-nome e data-gabinete são usados pelo JavaScript de filtro
               echo "
-                    <div class='card-docente' data-nome='$nome' data-gabinete='$gabinete'>
-                      <div class='docente-imagem'>
-                        <a href='perfil-prof.php?id={$row['id']}'>
-                          <img src='$img' alt='Foto de $nome' style='width:100%; height:100%; object-fit:cover;'>
-                        </a>
-                      </div>
-                      <div class='docente-info'>
-                        <a href='perfil-prof.php?id={$row['id']}'>
-                            <h3>$nome</h3>
-                        </a>
-                        <p>$formacao</p>
-                        <small style='color:green'>$gabinete</small>
-                      </div>
-                    </div>
-                    ";
+              <article class='docente-card' data-nome='$nome' data-gabinete='$gabinete'>
+                <div class='card-image'>
+                  <a href='perfil-prof.php?id=$id'>
+                    <img src='$img' alt='Foto de $nome' loading='lazy'>
+                  </a>
+                  <span class='card-badge'>$gabinete</span>
+                </div>
+                <div class='card-content'>
+                  <h3 class='card-title'>
+                    <a href='perfil-prof.php?id=$id'>$nome</a>
+                  </h3>
+                  <p class='card-info'>$formacao</p>
+                  
+                  <a href='perfil-prof.php?id=$id' class='btn-detalhes'>
+                    Ver Perfil <i class='fa-solid fa-arrow-right'></i>
+                  </a>
+                </div>
+              </article>
+              ";
             }
           } else {
-            echo "<p style='text-align:center; width:100%;'>Nenhum docente cadastrado ainda.</p>";
+            echo "<div class='empty-state'><p>Nenhum docente cadastrado ainda.</p></div>";
           }
           ?>
 
+        </div>
+
+        <div id="no-results" style="display: none; text-align: center; padding: 50px; color: #666;">
+            <i class="fa-solid fa-user-slash" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+            <p>Nenhum professor encontrado com os filtros atuais.</p>
         </div>
       </div>
     </section>
@@ -139,95 +159,95 @@ $result = $conn->query($sql);
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-address">
+        <div class="footer-section">
           <h4>Endereço</h4>
-          <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+          <p><i class="fa-solid fa-location-dot"></i> Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
         </div>
-        <div class="footer-schedule">
+        <div class="footer-section">
           <h4>Funcionamento</h4>
-          <p>Segunda a Sexta: 08h - 22h</p>
+          <p><i class="fa-regular fa-clock"></i> Seg a Sex: 08h - 22h</p>
           <p>Sábado: 12h - 20h</p>
         </div>
-        <div class="footer-contact">
+        <div class="footer-section">
           <h4>Contato</h4>
-          <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
-          <p>Telefone: (31) 2137-5700</p>
+          <p><i class="fa-regular fa-envelope"></i> secretaria.ourobranco@ifmg.edu.br</p>
+          <p><i class="fa-solid fa-phone"></i> (31) 2137-5700</p>
         </div>
-        <div class="footer-social">
+        <div class="footer-section">
           <h4>Redes Sociais</h4>
           <div class="social-icons">
-            <a href="https://www.youtube.com/@IFMGCampusOuroBranco" target="_blank" aria-label="Youtube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Facebook">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
+            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
           </div>
         </div>
       </div>
-    </div>
-    <div id="copyright">
-      <p>
-        &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
-      </p>
+      <div class="copyright">
+        <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
+      </div>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Menu Mobile
+      document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-items').classList.toggle('active');
+      });
+
+      // Lógica de Filtro
       const searchInput = document.getElementById('searchInput');
-      const filterButton = document.getElementById('filterButton'); // Botão opcional
+      const btnLimpar = document.getElementById('btn-limpar');
       const gabineteCheckboxes = document.querySelectorAll('.gabinete-checkbox');
-      const docenteCards = document.querySelectorAll('.card-docente');
+      const docenteCards = document.querySelectorAll('.docente-card');
+      const noResultsMsg = document.getElementById('no-results');
 
       function filtrarDocentes() {
-        // Normaliza texto para busca (remove acentos e minúsculas)
         const searchTerm = searchInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        
+        const selectedGabinetes = Array.from(gabineteCheckboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
 
-        const selectedGabinetes = [];
-        gabineteCheckboxes.forEach(checkbox => {
-          if (checkbox.checked) {
-            selectedGabinetes.push(checkbox.value);
-          }
-        });
+        let visiveis = 0;
 
         docenteCards.forEach(card => {
-          // Pega os dados dos atributos data-*
           const nomeRaw = card.getAttribute('data-nome').toLowerCase();
           const nomeNormalized = nomeRaw.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
           const gabinete = card.getAttribute('data-gabinete');
 
-          // Lógica de match
           const nomeMatch = searchTerm === '' || nomeNormalized.includes(searchTerm);
           const gabineteMatch = selectedGabinetes.length === 0 || selectedGabinetes.includes(gabinete);
 
           if (nomeMatch && gabineteMatch) {
-            card.style.display = 'block';
+            card.style.display = 'flex'; // Flex para manter o layout do card
+            visiveis++;
           } else {
             card.style.display = 'none';
           }
         });
+
+        // Mostra mensagem se nenhum visível
+        if(visiveis === 0) {
+            noResultsMsg.style.display = 'block';
+        } else {
+            noResultsMsg.style.display = 'none';
+        }
       }
 
-      // Filtra em tempo real ao digitar
+      // Event Listeners
       searchInput.addEventListener('input', filtrarDocentes);
-
-      // Filtra ao clicar nos checkboxes
+      
       gabineteCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filtrarDocentes);
       });
 
-      // Mantém funcionalidade do botão se o usuário preferir clicar
-      if (filterButton) {
-        filterButton.addEventListener('click', filtrarDocentes);
-      }
+      btnLimpar.addEventListener('click', function(){
+          searchInput.value = '';
+          gabineteCheckboxes.forEach(cb => cb.checked = false);
+          filtrarDocentes();
+      });
     });
   </script>
-
 </body>
-
 </html>

@@ -1,262 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratório | IFMG</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratório de Metalurgia III | IFMG</title>
 
-    <link rel="stylesheet" href="./src/output.css" />
-    <link rel="stylesheet" href="css/style-lab.css" />
+  <link rel="stylesheet" href="css/style-pagina-lab.css" />
 
-    <!--FONTES UTILIZADAS-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!--ICONES UTILIZADOS-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
-    />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+</head>
 
-    <!--API PARA FOTO PANORAMICA-->
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <a href="menu-principal.php" id="logo-link">
-          <img src="img/logo-b.png" alt="" id="logo" />
-        </a>
-        <nav class="nav-items">
-          <a href="menu-cursos.php">CURSOS</a>
-          <a href="menu-lab.html">LABORATÓRIOS</a>
-          <a href="menu-docentes.php">DOCENTES</a>
-          <a href="menu-projetos.php">PROJETOS</a>
-        </nav>
+<body>
+  <header class="glass-header">
+    <div class="container header-content">
+      <a href="menu-principal.php" id="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo-b.png" alt="Logo do IFMG Campus Ouro Branco" id="logo" />
+      </a>
+      
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-items">
+        <a href="menu-cursos.php">Cursos</a>
+        <a href="menu-lab.html" class="active">Laboratórios</a>
+        <a href="menu-docentes.php">Docentes</a>
+        <a href="menu-projetos.php">Projetos</a>
+        <a href="login.php" class="btn-login">Acesso Restrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="theme" style="background-image: url('https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg');">
+      <div class="theme-overlay"></div>
+      <a href="menu-lab.html" class="btn-voltar-canto">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </a>
+      <div class="theme-content">
+        <span class="lab-tag">Ensaios e Caracterização</span>
+        <h1 class="theme-title">Laboratório de Metalurgia III</h1>
+        <p class="theme-desc">Caracterização mecânica, análise metalográfica e ensaios não destrutivos.</p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section
-        class="theme"
-        style="
-          background-image: url(https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg);
-        "
-      >
-        <div class="theme-content">
-          <h1 id="theme-title">Laboratório de Metalurgia III</h1>
-          <p id="theme-desc">
-            Conheça nossos laboratórios de Metalurgia do Campus.
-          </p>
-        </div>
-      </section>
-
-      <section class="laboratorio">
-        <div class="container">
-          <div class="laboratorio-text">
-            <h2 class="section-title">Sobre o Laboratório</h2>
-            <p class="section-desc">
-              O Laboratório de Pesquisa é um espaço destinado ao desenvolvimento
-              de projetos científicos e de extensão. Nele, docentes de diversas
-              áreas do conhecimento realizam suas atividades de forma
-              colaborativa, utilizando o ambiente de maneira compartilhada e
-              interdisciplinar. O espaço foi disponibilizado para atender às
-              demandas específicas da pesquisa acadêmica, promovendo a
-              integração entre ensino, ciência.
+    <section class="sobre-lab">
+      <div class="container">
+        <div class="split-layout">
+          
+          <div class="lab-info">
+            <h2 class="section-title-left">Sobre o Espaço</h2>
+            <p>
+              O Laboratório de Metalurgia III é voltado para as etapas de beneficiamento de minérios e preparação de amostras. 
+              Equipado para realizar processos de moagem, peneiramento, flotação e concentração gravimétrica.
+            </p>
+            <p>
+              Neste ambiente, os alunos dos cursos técnicos e de engenharia metalúrgica desenvolvem atividades práticas 
+              fundamentais para a compreensão da cadeia produtiva mineral, desde a extração até o refino inicial.
             </p>
           </div>
-          <div id="foto-panorama"></div>
-        </div>
-      </section>
 
-      <section class="equipamentos">
-        <div class="container">
-          <h2 class="section-title">Nossos Equipamentos</h2>
-          <div class="equipamentos-grid">
-            <!-- modelo de card -->
-            <!-- modelo de card -->
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h4 class="equipamentos-nome">Balança analítica</h4>
-              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
-            </div>
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-microscope"></i>
-              </div>
-              <h4 class="equipamentos-nome">Balança de precisão</h4>
-              <p class="equipamentos-categoria">Análise e Observação</p>
-            </div>
+          <div class="lab-tour">
+            <div id="foto-panorama"></div>
+            <p class="panorama-instruction"><i class="fa-solid fa-arrows-up-down-left-right"></i> Tour Virtual 360º</p>
           </div>
-        </div>
 
-        <div class="container">
-          <div class="equipamentos-grid">
-            <!-- modelo de card -->
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h4 class="equipamentos-nome">Célula de flotação de bancada</h4>
-              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
-            </div>
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-microscope"></i>
-              </div>
-              <h4 class="equipamentos-nome">Estufas para secagem</h4>
-              <p class="equipamentos-categoria">Análise e Observação</p>
-            </div>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="container">
-          <div class="equipamentos-grid">
-            <!-- modelo de card -->
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h4 class="equipamentos-nome">Fornos mufla</h4>
-              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
-            </div>
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-microscope"></i>
-              </div>
-              <h4 class="equipamentos-nome">Micro célula de flotação</h4>
-              <p class="equipamentos-categoria">Análise e Observação</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="equipamentos-grid">
-            <!-- modelo de card -->
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h4 class="equipamentos-nome">Mesa concentradora</h4>
-              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
-            </div>
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-microscope"></i>
-              </div>
-              <h4 class="equipamentos-nome">Moinho de bolas</h4>
-              <p class="equipamentos-categoria">Análise e Observação</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="equipamentos-grid">
-            <!-- modelo de card -->
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h4 class="equipamentos-nome">Peneira vibratória</h4>
-              <p class="equipamentos-categoria">Controle Ambiental e Cultura</p>
-            </div>
-            <div class="equipamentos-card">
-              <div class="equipamentos-icon">
-                <i class="fa-solid fa-microscope"></i>
-              </div>
-              <h4 class="equipamentos-nome">Vidraria laboratorial</h4>
-              <p class="equipamentos-categoria">Análise e Observação</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
+    <section class="equipamentos-section">
       <div class="container">
-        <div class="footer-content">
-          <div id="footer-address">
-            <h4>Endereço</h4>
-            <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
-          </div>
-          <div id="footer-schedule">
-            <h4>Funcionamento</h4>
-            <p>Segunda a Sexta: 08h - 22h</p>
-            <p>Sabado: 12h - 20h</p>
-          </div>
-          <div id="footer-contact">
-            <h4>Contato</h4>
-            <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
-            <p>Telefone: (31) 2137-5700</p>
-          </div>
-          <div id="footer-social">
-            <h4>Redes Sociais</h4>
-            <div class="social-icons">
-              <a
-                href="https://www.youtube.com/@IFMGCampusOuroBranco"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-youtube"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/ifmg.ourobranco"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/ifmgob"
-                target="_blank"
-                aria-label="Youtube"
-              >
-                <i class="fa-brands fa-facebook"></i>
-              </a>
+        <h2 class="section-title">Infraestrutura Disponível</h2>
+        
+        <div class="equipamentos-grid">
+            
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-cube"></i></div>
+                <h4>Balança Analítica</h4>
+                <p>Controle Ambiental e Cultura</p>
             </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                <h4>Balança de Precisão</h4>
+                <p>Análise e Observação</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-vials"></i></div>
+                <h4>Célula de Flotação</h4>
+                <p>Controle Ambiental e Cultura</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-vault"></i></div>
+                <h4>Estufas para Secagem</h4>
+                <p>Análise e Observação</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                <h4>Fornos Mufla</h4>
+                <p>Controle Ambiental e Cultura</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-inbox"></i></div>
+                <h4>Micro Célula de Flotação</h4>
+                <p>Análise e Observação</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-bandage"></i></div>
+                <h4>Mesa Concentradora</h4>
+                <p>Controle Ambiental e Cultura</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-hockey-puck"></i></div>
+                <h4>Moinho de Bolas</h4>
+                <p>Análise e Observação</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                <h4>Peneira Vibratória</h4>
+                <p>Controle Ambiental e Cultura</p>
+            </div>
+
+            <div class="equip-card">
+                <div class="equip-icon"><i class="fa-solid fa-flask"></i></div>
+                <h4>Vidraria Laboratorial</h4>
+                <p>Análise e Observação</p>
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Endereço</h4>
+          <p><i class="fa-solid fa-location-dot"></i> Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+        </div>
+        <div class="footer-section">
+          <h4>Funcionamento</h4>
+          <p><i class="fa-regular fa-clock"></i> Seg a Sex: 08h - 22h</p>
+          <p>Sábado: 12h - 20h</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p><i class="fa-regular fa-envelope"></i> secretaria.ourobranco@ifmg.edu.br</p>
+          <p><i class="fa-solid fa-phone"></i> (31) 2137-5700</p>
+        </div>
+        <div class="footer-section">
+          <h4>Redes Sociais</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
           </div>
         </div>
       </div>
-      <div id="copyright">
-        <p>
-          &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
-        </p>
+      <div class="copyright">
+        <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-      pannellum.viewer("foto-panorama", {
+  <script>
+    // Menu Mobile
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-items').classList.toggle('active');
+    });
+
+    // Configuração do Pannellum
+    pannellum.viewer("foto-panorama", {
         type: "equirectangular",
-        panorama: "https://pannellum.org/images/alma.jpg",
+        panorama: "https://pannellum.org/images/alma.jpg", // Substitua pela imagem 360 real
         autoLoad: true,
         showControls: true,
-        compass: true,
+        compass: false,
         hotSpots: [
           {
             pitch: -10,
             yaw: 150,
             type: "info",
-            text: "Mesa de trabalho principal",
+            text: "Área de Moagem",
           },
           {
             pitch: 0,
             yaw: 40,
             type: "info",
-            text: "Capela de exaustão de gases",
-          },
-        ],
-      });
-    </script>
-  </body>
+            text: "Bancada de Flotação",
+          }
+        ]
+    });
+  </script>
+</body>
 </html>

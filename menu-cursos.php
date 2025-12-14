@@ -14,66 +14,84 @@ $result = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nossos Cursos | IFMG</title>
 
-  <link rel="stylesheet" href="css/style-menu-cursos.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
+  <link rel="stylesheet" href="style-menu-cursos.css"/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
   <header>
-    <div class="container">
-      <a href="menu-principal.php" id="logo-link">
-        <img src="img/logo-b.png" alt="" id="logo" />
+    <div class="container header-content">
+      <a href="menu-principal.php" id="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo-b.png" alt="Logo do IFMG" id="logo" />
       </a>
+      
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
       <nav class="nav-items">
-        <a href="menu-cursos.php">CURSOS</a>
-        <a href="menu-lab.html">LABORATÓRIOS</a>
-        <a href="menu-docentes.php">DOCENTES</a>
-        <a href="menu-projetos.php">PROJETOS</a>
-        <a href="login.php">ACESSO RESTRITO</a>
+        <a href="menu-cursos.php" class="active">Cursos</a>
+        <a href="menu-lab.html">Laboratórios</a>
+        <a href="menu-docentes.php">Docentes</a>
+        <a href="menu-projetos.php">Projetos</a>
+        <a href="login.php" class="btn-login">Acesso Restrito</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="theme" style="background-color: greenyellow">
+    <section class="theme">
+      <div class="theme-overlay"></div>
       <div class="theme-content">
         <h1 class="theme-title">Nossos Cursos</h1>
-        <p class="theme-desc">Conheça os cursos oferecidos pela nossa instituição.</p>
+        <p class="theme-desc">Descubra oportunidades de formação técnica e superior com excelência e inovação.</p>
       </div>
     </section>
     
-    <section>
+    <section class="cursos-section">
+      <div class="container">
+        <div class="galeria-grid">
           <?php
-          if ($result->num_rows > 0) {
+          if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              $img = !empty($row['imagem']) ? $row['imagem'] : 'img/escola.png';
+              // Define imagem padrão se não houver
+              $img = !empty($row['imagem']) ? htmlspecialchars($row['imagem']) : 'img/escola.png';
               $nome = htmlspecialchars($row['nome']);
               $id = $row['id'];
+              // Pega o nível do curso (ex: Técnico, Bacharelado) para exibir como etiqueta
+              $nivel = isset($row['nivel']) ? htmlspecialchars($row['nivel']) : 'Curso';
 
               echo "
-                            <div class='galeria-item'>
-                                <a href='pagina-curso.php?id=$id'>
-                                    <img src='$img' alt='Imagem do curso de $nome' style='width: 100%; height: 250px; object-fit: cover;'>
-                                </a>
-                                <div class='galeria-caption'>
-                                    <a href='pagina-curso.php?id=$id' style='text-decoration:none; color:inherit;'>
-                                        $nome
-                                    </a>
-                                </div>
-                            </div>
-                            ";
+              <article class='curso-card'>
+                <div class='card-image'>
+                  <a href='pagina-curso.php?id=$id' aria-label='Ver detalhes do curso de $nome'>
+                    <img src='$img' alt='Foto ilustrativa do curso de $nome' loading='lazy'>
+                    <span class='card-badge'>$nivel</span>
+                  </a>
+                </div>
+                <div class='card-content'>
+                  <h3 class='card-title'>
+                    <a href='pagina-curso.php?id=$id'>$nome</a>
+                  </h3>
+                  <a href='pagina-curso.php?id=$id' class='btn-detalhes'>
+                    Saiba Mais <i class='fa-solid fa-arrow-right'></i>
+                  </a>
+                </div>
+              </article>
+              ";
             }
           } else {
-            echo "<p style='text-align:center; width:100%; grid-column: 1/-1;'>Nenhum curso cadastrado no momento.</p>";
+            echo "
+            <div class='empty-state'>
+              <i class='fa-solid fa-graduation-cap'></i>
+              <p>Nenhum curso cadastrado no momento.</p>
+            </div>
+            ";
           }
           ?>
-
         </div>
       </div>
     </section>
@@ -82,42 +100,39 @@ $result = $conn->query($sql);
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div id="footer-address">
+        <div class="footer-section">
           <h4>Endereço</h4>
-          <p>Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
+          <p><i class="fa-solid fa-location-dot"></i> Rua Afonso Sardinha, 90<br />Ouro Branco, MG - 36420-000</p>
         </div>
-        <div id="footer-schedule">
+        <div class="footer-section">
           <h4>Funcionamento</h4>
-          <p>Segunda a Sexta: 08h - 22h</p>
+          <p><i class="fa-regular fa-clock"></i> Seg a Sex: 08h - 22h</p>
           <p>Sábado: 12h - 20h</p>
         </div>
-        <div id="footer-contact">
+        <div class="footer-section">
           <h4>Contato</h4>
-          <p>E-mail: secretaria.ourobranco@ifmg.edu.br</p>
-          <p>Telefone: (31) 2137-5700</p>
+          <p><i class="fa-regular fa-envelope"></i> secretaria.ourobranco@ifmg.edu.br</p>
+          <p><i class="fa-solid fa-phone"></i> (31) 2137-5700</p>
         </div>
-        <div id="footer-social">
+        <div class="footer-section">
           <h4>Redes Sociais</h4>
           <div class="social-icons">
-            <a href="https://www.youtube.com/@IFMGCampusOuroBranco" target="_blank" aria-label="Youtube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://www.instagram.com/ifmg.ourobranco" target="_blank" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/ifmgob" target="_blank" aria-label="Facebook">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
+            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
           </div>
         </div>
       </div>
-    </div>
-    <div id="copyright">
-      <p>
-        &copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco
-      </p>
+      <div class="copyright">
+        <p>&copy; 2025 Instituto Federal de Minas Gerais - Campus Ouro Branco</p>
+      </div>
     </div>
   </footer>
-</body>
 
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-items').classList.toggle('active');
+    });
+  </script>
+</body>
 </html>
