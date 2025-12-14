@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root"; // Coloque sua senha do MySQL aqui, se houver
-$dbname = "perfil";
+$password = "root";
+$dbname = "portfolio_institucional";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
