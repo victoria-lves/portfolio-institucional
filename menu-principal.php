@@ -97,7 +97,7 @@ session_start();
             <div class="parallax-content">
                 <h2>Faça parte da nossa história</h2>
                 <p>Venha construir conhecimento no IFMG Campus Ouro Branco</p>
-                <a href="menu-cursos.php" class="btn-white">Ver Processo Seletivo</a>
+                <a href="https://www.ifmg.edu.br/ourobranco/" class="btn-white">Ver Processo Seletivo</a>
             </div>
         </section>
 

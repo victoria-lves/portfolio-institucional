@@ -1,7 +1,7 @@
 <?php
 include 'conexao.php';
 
-// 1. Verifica se foi passado um ID na URL (ex: pag-projeto.php?id=1)
+// 1. Verifica se foi passado um ID na URL (ex: pagina-projeto.php?id=1)
 $id_projeto = $_GET['id'] ?? null;
 
 if (!$id_projeto) {
@@ -40,7 +40,7 @@ if ($proj['status'] == 'Em andamento') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto: <?php echo htmlspecialchars($proj['titulo']); ?> | IFMG</title>
 
-    <link rel="stylesheet" href="css/style-pag-projeto.css">
+    <link rel="stylesheet" href="css/style-pagina-projeto.css">
     <link
         href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@200&display=swap"
         rel="stylesheet">

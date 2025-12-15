@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $prof = $stmt_prof->get_result()->fetch_assoc();
 
             // Se tiver perfil de professor, salva o ID, senão deixa null (será criado ao tentar editar)
-            $_SESSION['professor_id'] = $prof ? $prof['id'] : null;
+            $_SESSION['id_professor'] = $prof ? $prof['id'] : null;
 
             // Redireciona para o painel
             header("Location: dashboard.php");

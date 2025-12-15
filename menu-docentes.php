@@ -8,6 +8,7 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,8 +16,10 @@ $result = $conn->query($sql);
 
   <link rel="stylesheet" href="style-menu-docentes.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
@@ -26,7 +29,7 @@ $result = $conn->query($sql);
       <a href="menu-principal.php" id="logo-link" aria-label="Voltar para a página inicial">
         <img src="img/logo-b.png" alt="Logo do IFMG Campus Ouro Branco" id="logo" />
       </a>
-      
+
       <button class="menu-toggle" aria-label="Abrir menu de navegação">
         <i class="fa-solid fa-bars"></i>
       </button>
@@ -53,7 +56,7 @@ $result = $conn->query($sql);
     <section class="filtro-section">
       <div class="container">
         <div class="filtro-box">
-          
+
           <div class="filtro-top">
             <div class="search-wrapper">
               <i class="fa-solid fa-search"></i>
@@ -104,37 +107,37 @@ $result = $conn->query($sql);
     <section class="docentes-section">
       <div class="container">
         <div class="galeria-grid" id="docentesContainer">
-          
+
           <?php
           if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
               // Define imagem padrão se não tiver
               $img = !empty($row['pfp']) ? htmlspecialchars($row['pfp']) : 'https://via.placeholder.com/300x300?text=Sem+Foto';
-              
+
               // Sanitização de dados
               $nome = htmlspecialchars($row['nome']);
               $gabinete = htmlspecialchars($row['gabinete']);
               $formacao = htmlspecialchars($row['formacao']);
               $id = $row['id'];
-              
+
               // Define cor do badge baseado na área (opcional, visual extra)
               $badgeClass = strtolower($gabinete); // ex: informatica, metalurgia...
-
+          
               echo "
               <article class='docente-card' data-nome='$nome' data-gabinete='$gabinete'>
                 <div class='card-image'>
-                  <a href='perfil-prof.php?id=$id'>
+                  <a href='pagina-docente.php?id=$id'>
                     <img src='$img' alt='Foto de $nome' loading='lazy'>
                   </a>
                   <span class='card-badge'>$gabinete</span>
                 </div>
                 <div class='card-content'>
                   <h3 class='card-title'>
-                    <a href='perfil-prof.php?id=$id'>$nome</a>
+                    <a href='pagina-docente.php?id=$id'>$nome</a>
                   </h3>
                   <p class='card-info'>$formacao</p>
                   
-                  <a href='perfil-prof.php?id=$id' class='btn-detalhes'>
+                  <a href='pagina-docente.php?id=$id' class='btn-detalhes'>
                     Ver Perfil <i class='fa-solid fa-arrow-right'></i>
                   </a>
                 </div>
@@ -149,8 +152,8 @@ $result = $conn->query($sql);
         </div>
 
         <div id="no-results" style="display: none; text-align: center; padding: 50px; color: #666;">
-            <i class="fa-solid fa-user-slash" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
-            <p>Nenhum professor encontrado com os filtros atuais.</p>
+          <i class="fa-solid fa-user-slash" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+          <p>Nenhum professor encontrado com os filtros atuais.</p>
         </div>
       </div>
     </section>
@@ -191,7 +194,7 @@ $result = $conn->query($sql);
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // Menu Mobile
-      document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.menu-toggle').addEventListener('click', function () {
         document.querySelector('.nav-items').classList.toggle('active');
       });
 
@@ -204,10 +207,10 @@ $result = $conn->query($sql);
 
       function filtrarDocentes() {
         const searchTerm = searchInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        
+
         const selectedGabinetes = Array.from(gabineteCheckboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.value);
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
 
         let visiveis = 0;
 
@@ -228,26 +231,27 @@ $result = $conn->query($sql);
         });
 
         // Mostra mensagem se nenhum visível
-        if(visiveis === 0) {
-            noResultsMsg.style.display = 'block';
+        if (visiveis === 0) {
+          noResultsMsg.style.display = 'block';
         } else {
-            noResultsMsg.style.display = 'none';
+          noResultsMsg.style.display = 'none';
         }
       }
 
       // Event Listeners
       searchInput.addEventListener('input', filtrarDocentes);
-      
+
       gabineteCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filtrarDocentes);
       });
 
-      btnLimpar.addEventListener('click', function(){
-          searchInput.value = '';
-          gabineteCheckboxes.forEach(cb => cb.checked = false);
-          filtrarDocentes();
+      btnLimpar.addEventListener('click', function () {
+        searchInput.value = '';
+        gabineteCheckboxes.forEach(cb => cb.checked = false);
+        filtrarDocentes();
       });
     });
   </script>
 </body>
+
 </html>
