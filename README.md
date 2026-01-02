@@ -105,41 +105,6 @@ Seguindo as diretrizes da **OWASP Top 10** e **LGPD**:
 
 ---
 
-## ⚙️ Instalação e Deploy
-
-### Pré-requisitos
-
-* PHP 8.0+
-* MySQL 5.7+
-* Composer
-* Servidor Web (Apache/Nginx)
-
-### Passo a Passo
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/usuario/portfolio-institucional.git
-
-```
-
-
-2. Instale as dependências:
-```bash
-composer install --no-dev
-
-```
-
-
-3. Configure o ambiente:
-* Renomeie `.env.example` para `.env` e configure as credenciais do banco (separação de config dev/prod).
-
-
-4. Importe o banco de dados:
-* Execute o script `database/schema.sql`.
-
-
-
----
 
 ## 🔮 Roadmap e Melhorias Futuras (Dívida Técnica)
 
