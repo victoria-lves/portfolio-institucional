@@ -14,8 +14,7 @@
 6. [Segurança e Conformidade](https://www.google.com/search?q=%23-seguran%C3%A7a-e-conformidade)
 7. [Design e UX/UI](https://www.google.com/search?q=%23-design-e-uxui)
 8. [Performance e SEO](https://www.google.com/search?q=%23-performance-e-seo)
-9. [Instalação e Deploy](https://www.google.com/search?q=%23-instala%C3%A7%C3%A3o-e-deploy)
-10. [Roadmap e Melhorias Futuras](https://www.google.com/search?q=%23-roadmap-e-melhorias-futuras)
+9. [Roadmap e Melhorias Futuras](https://www.google.com/search?q=%23-roadmap-e-melhorias-futuras)
 
 ---
 
