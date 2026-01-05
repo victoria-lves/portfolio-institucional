@@ -44,7 +44,6 @@ A escolha das ferramentas priorizou a robustez, a facilidade de manutenção e a
 * **Back-end:** PHP 8+ (Foco em Orientação a Objetos e tipagem forte).
 * **Banco de Dados:** MySQL (Motor InnoDB para suporte a transações ACID).
 * **Front-end:** HTML5, CSS3, JavaScript (ES6+) e Bootstrap 5 (Customizado para layout responsivo).
-* **Gerenciamento de Dependências:** Composer (PSR-4 Autoloading).
 
 ---
 
